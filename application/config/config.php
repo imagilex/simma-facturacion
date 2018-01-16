@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://www.servicios-simma.com.mx/';
+$config['base_url']	= 'http://local.simma.com/';
 
 /*
 |--------------------------------------------------------------------------

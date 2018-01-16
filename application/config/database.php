@@ -49,12 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-//$db['default']['username'] = 'rramirez_simma';
-$db['default']['username'] = 'servici7_cm2016';
-//$db['default']['password'] = 'simmamx';
-$db['default']['password'] = 'cm2016SIMMA'; 
-//$db['default']['database'] = 'rramirez_simma';
-$db['default']['database'] = 'servici7_controlmanifiestos';
+$db['default']['username'] = 'root';
+$db['default']['password'] = ''; 
+$db['default']['database'] = 'simma';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
