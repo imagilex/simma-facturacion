@@ -44,6 +44,7 @@ class Clientes extends CI_Controller
 			"generadores"=>$generadores,
 			"filtros"=>$filtros,
 			"vendedor"=>$this->modcatalogo->getCatalogo(4)
+
 			),true);
 		$this->load->view('html/html',array("head"=>$head,"body"=>$body));
 	}
@@ -68,7 +69,17 @@ class Clientes extends CI_Controller
 			"tipocobro"=>$this->modcatalogo->getCatalogo(6),
 			"diascredito"=>$this->modcatalogo->getCatalogo(7),
 			"estatuscliente"=>$this->modcatalogo->getCatalogo(13),
-			"facturaciones"=>""
+			"facturaciones"=>"",
+			"categorias"=>$this->modcatalogo->getCatalogo(28),
+			"formapagos"=>$this->modcatalogo->getCatalogo(18),
+			"monedas"=>$this->modcatalogo->getCatalogo(21),
+			"metodopagos"=>$this->modcatalogo->getCatalogo(20),
+			"usocfdis"=>$this->modcatalogo->getCatalogo(27),
+			"claveprodservs"=>$this->modcatalogo->getCatalogo(16),
+			"claveunidads"=>$this->modcatalogo->getCatalogo(17),
+			"bases"=>$this->modcatalogo->getCatalogo(24),
+			"impuestos"=>$this->modcatalogo->getCatalogo(19),
+			"tipofacts"=>$this->modcatalogo->getCatalogo(25)
 			),true);
 		$this->load->view('html/html',array("head"=>$head,"body"=>$body));
 	}
@@ -136,7 +147,17 @@ class Clientes extends CI_Controller
 			"tipocobro"=>$this->modcatalogo->getCatalogo(6),
 			"diascredito"=>$this->modcatalogo->getCatalogo(7),
 			"estatuscliente"=>$this->modcatalogo->getCatalogo(13),
-			"facturaciones"=>$facturaciones
+			"facturaciones"=>$facturaciones,
+			"categorias"=>$this->modcatalogo->getCatalogo(28),
+			"formapagos"=>$this->modcatalogo->getCatalogo(18),
+			"monedas"=>$this->modcatalogo->getCatalogo(21),
+			"metodopagos"=>$this->modcatalogo->getCatalogo(20),
+			"usocfdis"=>$this->modcatalogo->getCatalogo(27),
+			"claveprodservs"=>$this->modcatalogo->getCatalogo(16),
+			"claveunidads"=>$this->modcatalogo->getCatalogo(17),
+			"bases"=>$this->modcatalogo->getCatalogo(24),
+			"impuestos"=>$this->modcatalogo->getCatalogo(19),
+			"tipofacts"=>$this->modcatalogo->getCatalogo(25)
 			),true);
 		$this->load->view('html/html',array("head"=>$head,"body"=>$body));
 		$this->modsesion->addLog(
@@ -176,7 +197,17 @@ class Clientes extends CI_Controller
 			"tipocobro"=>$this->modcatalogo->getCatalogo(6),
 			"diascredito"=>$this->modcatalogo->getCatalogo(7),
 			"estatuscliente"=>$this->modcatalogo->getCatalogo(13),
-			"facturaciones"=>$facturaciones
+			"facturaciones"=>$facturaciones,
+			"categorias"=>$this->modcatalogo->getCatalogo(28),
+			"formapagos"=>$this->modcatalogo->getCatalogo(18),
+			"monedas"=>$this->modcatalogo->getCatalogo(21),
+			"metodopagos"=>$this->modcatalogo->getCatalogo(20),
+			"usocfdis"=>$this->modcatalogo->getCatalogo(27),
+			"claveprodservs"=>$this->modcatalogo->getCatalogo(16),
+			"claveunidads"=>$this->modcatalogo->getCatalogo(17),
+			"bases"=>$this->modcatalogo->getCatalogo(24),
+			"impuestos"=>$this->modcatalogo->getCatalogo(19),
+			"tipofacts"=>$this->modcatalogo->getCatalogo(25)
 			),true);
 		$this->load->view('html/html',array("head"=>$head,"body"=>$body));
 	}

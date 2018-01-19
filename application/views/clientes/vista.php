@@ -350,6 +350,200 @@
 				<p class="form-control-static"><?= $objeto->getCobranzaestado(); ?></p>
 			</div>
 		</div>
+		<h5>Facturación Electrónica</h5>
+		<div class="form-group">
+			<label for="frm_cliente_categoria" class="col-sm-2 control-label">Categoría</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($categorias!==false) 
+							foreach($categorias["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCategoria()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_formapago" class="col-sm-2 control-label">Forma de Pago</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($formapagos!==false) 
+							foreach($formapagos["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_formapago()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_moneda" class="col-sm-2 control-label">Moneda</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($monedas!==false) 
+							foreach($monedas["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_moneda()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_metodopago" class="col-sm-2 control-label">Método de pago</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($metodopagos!==false) 
+							foreach($metodopagos["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_metodopago()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_usocfdi" class="col-sm-2 control-label">Uso del CFDI</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($usocfdis!==false) 
+							foreach($usocfdis["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_usocfdi()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_claveprodserv" class="col-sm-2 control-label">Clave del Producto o Servicio</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($claveprodservs!==false) 
+							foreach($claveprodservs["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_claveprodserv()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_claveunidad" class="col-sm-2 control-label">Clave Unidad</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($claveunidads!==false) 
+							foreach($claveunidads["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_claveunidad()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_base" class="col-sm-2 control-label">Base</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($bases!==false) 
+							foreach($bases["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_base()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_impuesto" class="col-sm-2 control-label">Impuesto</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($impuestos!==false) 
+							foreach($impuestos["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_impuesto()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_tipofactor" class="col-sm-2 control-label">Tipo de Factor</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($tipofacts!==false) 
+							foreach($tipofacts["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_tipofactor()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cdfi_tasaocuota" class="col-sm-2 control-label">Tasa o Cuota</label>
+			<div class="col-sm-10">
+				<p class="form-control-static"><?= $objeto->getCfdi_tasaocuota(); ?></p>
+			</div>
+		</div>
+
+		<div class="form-group">
+		    <label for="frm_cliente_banco" class="col-sm-2 control-label">Banco</label>
+			<div class="col-sm-4">
+				<p class="form-control-static"><?= $objeto->getBanco(); ?></p>
+			</div>
+			<label for="frm_cliente_cuenta" class="col-sm-2 control-label">Cuenta</label>
+			<div class="col-sm-4">
+				<p class="form-control-static"><?= $objeto->getCuenta(); ?></p>
+			</div>
+		</div>
+		<div class="form-group">
+		    <label for="frm_cliente_clabe" class="col-sm-2 control-label">Clave</label>
+			<div class="col-sm-4">
+				<p class="form-control-static"><?= $objeto->getClabe(); ?></p>
+			</div>
+			<label for="frm_cliente_rfcbanco" class="col-sm-2 control-label">Colonia</label>
+			<div class="col-sm-4">
+				<p class="form-control-static"><?= $objeto->getRfcbanco(); ?></p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_correo" class="col-sm-2 control-label">Correo</label>
+			<div class="col-sm-10">
+				<p class="form-control-static"><?= $objeto->getCorreo(); ?></p>
+			</div>
+		</div>	
 	</form>
 	<?php if($this->modsesion->hasPermisoHijo(66)):?>
 	<hr />
