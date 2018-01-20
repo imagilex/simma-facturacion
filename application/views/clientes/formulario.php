@@ -417,7 +417,8 @@
 		<div class="form-group">
 			<label for="frm_cliente_cfdi_base" class="col-sm-2 control-label">Base</label>
 			<div class="col-sm-10">
-				<select id="frm_cliente_cfdi_base" name="frm_cliente_cfdi_base" class="form-control">
+				<select id="frm_cliente_cfdi_base" name="frm_cliente_cfdi_base" class="form-control" onchange="Cliente.Tasaocuota_automatico()">
+					<option value=""></option>
 					<?php if($bases!==false) foreach($bases["opciones"] as $opc): ?>
 						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_base()?'selected="selected"':''); ?> >
 							<?= $opc["descripcion"]; ?>
@@ -453,7 +454,7 @@
 		<div class="form-group">
 			<label for="frm_cliente_cfdi_tasaocuota" class="col-sm-2 control-label">Tasa o Cuota</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="frm_cliente_cfdi_tasaocuota" name="frm_cliente_cfdi_tasaocuota" value="<?= $objeto->getCfdi_tasaocuota(); ?>" placeholder="Banco" onclick="gerCfdi_base();" />
+				<input type="text" class="form-control" id="frm_cliente_cfdi_tasaocuota" name="frm_cliente_cfdi_tasaocuota" value="<?= $objeto->getCfdi_tasaocuota(); ?>" placeholder="Taso o Cuota"/>
 			</div>
 		</div>
 		<div class="form-group">
