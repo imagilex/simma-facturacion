@@ -204,7 +204,6 @@ class Modcliente extends CI_Model
 	public function getReferenciaPago() { return $this->referenciapago; }
 	public function getMetodoPago() { return $this->metodopago; }
 	public function getNombreCorto() { return $this->nombrecorto; }
-
 	public function getCfdi_formapago() { return $this->cfdi_formapago; }
 	public function getCfdi_moneda() { return $this->cfdi_moneda; }
 	public function getCfdi_metodopago() { return $this->cfdi_metodopago; }
@@ -221,7 +220,6 @@ class Modcliente extends CI_Model
 	public function getClabe() { return $this->clabe; }
 	public function getRfcbanco() { return $this->rfcbanco; }
 	public function getCorreo() { return $this->correo; }
-
 	public function setIdcliente($valor) { $this->idcliente= intval($valor); }
 	public function setIdentificador($valor) { $this->identificador= "".$valor; }
 	public function setRazonsocial($valor) { $this->razonsocial= "".$valor; }
@@ -277,7 +275,6 @@ class Modcliente extends CI_Model
 	public function setReferenciaPago( $valor ) { $this->referenciapago = "" . $valor; }
 	public function setMetodoPago( $valor ) { $this->metodopago = "" . $valor; }
 	public function setNombreCorto( $valor ) { $this->nombrecorto = "" . $valor; }
-
 	public function setCfdi_formapago($valor) { $this->cfdi_formapago= "".$valor; }
 	public function setCfdi_moneda($valor) { $this->cfdi_moneda= "".$valor; }
 	public function setCfdi_metodopago($valor) { $this->cfdi_metodopago= "".$valor; }
@@ -362,7 +359,6 @@ class Modcliente extends CI_Model
 		$this->setReferenciaPago( $reg[ "referenciapago" ] );
 		$this->setMetodoPago( $reg[ "metodopago" ] );
 		$this->setNombreCorto( $reg[ "nombrecorto" ] );
-
 		$this->setCfdi_formapago( $reg[ "cfdi_formapago" ] );
 		$this->setCfdi_moneda( $reg[ "cfdi_moneda" ] );
 		$this->setCfdi_metodopago( $reg[ "cfdi_metodopago" ] );
@@ -453,7 +449,6 @@ class Modcliente extends CI_Model
 		$this->setReferenciaPago( $this->input->post( "frm_cliente_referenciapago" ) );
 		$this->setMetodoPago( $this->input->post( "frm_cliente_metodopago" ) );
 		$this->setNombreCorto( $this->input->post( "frm_cliente_nombrecorto" ) );
-		
 		$this->setCfdi_formapago( $this->input->post( "frm_cliente_cfdi_formapago" ) );
 		$this->setCfdi_moneda( $this->input->post( "frm_cliente_cfdi_moneda" ) );
 		$this->setCfdi_metodopago( $this->input->post( "frm_cliente_cfdi_metodopago" ) );
@@ -528,7 +523,6 @@ class Modcliente extends CI_Model
 			"referenciapago"=>$this->referenciapago,
 			"metodopago"=>$this->metodopago,
 			"nombrecorto"=>$this->nombrecorto,
-
 			"cfdi_formapago"=>$this->cfdi_formapago,
 			"cfdi_moneda"=>$this->cfdi_moneda,
 			"cfdi_metodopago"=>$this->cfdi_metodopago,
@@ -621,7 +615,6 @@ class Modcliente extends CI_Model
 			"referenciapago"=>$this->referenciapago,
 			"metodopago"=>$this->metodopago,
 			"nombrecorto"=>$this->nombrecorto,
-
 			"cfdi_formapago"=>$this->cfdi_formapago,
 			"cfdi_moneda"=>$this->cfdi_moneda,
 			"cfdi_metodopago"=>$this->cfdi_metodopago,

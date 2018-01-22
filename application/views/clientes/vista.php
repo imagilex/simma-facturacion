@@ -352,13 +352,27 @@
 		</div>
 		<h5>Facturación Electrónica</h5>
 		<div class="form-group">
-			<label for="frm_cliente_categoria" class="col-sm-2 control-label">Categoría</label>
+			<label for="frm_cliente_categoria" class="col-sm-2 control-label">Categoria</label>
 			<div class="col-sm-4">
 				<p class="form-control-static">
 					<?php 
 						if($categorias!==false) 
 							foreach($categorias["opciones"] as $opc) 
 								if($opc["idcatalogodet"]==$objeto->getCategoria()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+			<label for="frm_cliente_cfdi_moneda" class="col-sm-2 control-label">Moneda</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($monedas!==false) 
+							foreach($monedas["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_moneda()) 
 								{ 
 									echo $opc["descripcion"]; 
 									break; 
@@ -382,24 +396,6 @@
 					?>
 				</p>
 			</div>
-		</div>
-		<div class="form-group">
-			<label for="frm_cliente_cfdi_moneda" class="col-sm-2 control-label">Moneda</label>
-			<div class="col-sm-4">
-				<p class="form-control-static">
-					<?php 
-						if($monedas!==false) 
-							foreach($monedas["opciones"] as $opc) 
-								if($opc["idcatalogodet"]==$objeto->getCfdi_moneda()) 
-								{ 
-									echo $opc["descripcion"]; 
-									break; 
-								} 
-					?>
-				</p>
-			</div>
-		</div>
-		<div class="form-group">
 			<label for="frm_cliente_cfdi_metodopago" class="col-sm-2 control-label">Método de pago</label>
 			<div class="col-sm-4">
 				<p class="form-control-static">
@@ -446,8 +442,6 @@
 					?>
 				</p>
 			</div>
-		</div>
-		<div class="form-group">
 			<label for="frm_cliente_cfdi_claveunidad" class="col-sm-2 control-label">Clave Unidad</label>
 			<div class="col-sm-4">
 				<p class="form-control-static">
@@ -455,22 +449,6 @@
 						if($claveunidads!==false) 
 							foreach($claveunidads["opciones"] as $opc) 
 								if($opc["idcatalogodet"]==$objeto->getCfdi_claveunidad()) 
-								{ 
-									echo $opc["descripcion"]; 
-									break; 
-								} 
-					?>
-				</p>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="frm_cliente_cfdi_base" class="col-sm-2 control-label">Base</label>
-			<div class="col-sm-4">
-				<p class="form-control-static">
-					<?php 
-						if($bases!==false) 
-							foreach($bases["opciones"] as $opc) 
-								if($opc["idcatalogodet"]==$objeto->getCfdi_base()) 
 								{ 
 									echo $opc["descripcion"]; 
 									break; 
@@ -494,8 +472,6 @@
 					?>
 				</p>
 			</div>
-		</div>
-		<div class="form-group">
 			<label for="frm_cliente_cfdi_tipofactor" class="col-sm-2 control-label">Tipo de Factor</label>
 			<div class="col-sm-4">
 				<p class="form-control-static">
@@ -512,30 +488,43 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="frm_cliente_cdfi_tasaocuota" class="col-sm-2 control-label">Tasa o Cuota</label>
-			<div class="col-sm-10">
+			<label for="frm_cliente_cfdi_base" class="col-sm-2 control-label">Base</label>
+			<div class="col-sm-4">
+				<p class="form-control-static">
+					<?php 
+						if($bases!==false) 
+							foreach($bases["opciones"] as $opc) 
+								if($opc["idcatalogodet"]==$objeto->getCfdi_base()) 
+								{ 
+									echo $opc["descripcion"]; 
+									break; 
+								} 
+					?>
+				</p>
+			</div>
+			<label for="frm_cliente_cfdi_tasaocuota" class="col-sm-2 control-label" >Tasa o Cuota</label>
+			<div class="col-sm-4">
 				<p class="form-control-static"><?= $objeto->getCfdi_tasaocuota(); ?></p>
 			</div>
 		</div>
-
 		<div class="form-group">
 		    <label for="frm_cliente_banco" class="col-sm-2 control-label">Banco</label>
 			<div class="col-sm-4">
 				<p class="form-control-static"><?= $objeto->getBanco(); ?></p>
 			</div>
-			<label for="frm_cliente_cuenta" class="col-sm-2 control-label">Cuenta</label>
+			<label for="frm_cliente_rfcbanco" class="col-sm-2 control-label">RFC Banco</label>
 			<div class="col-sm-4">
-				<p class="form-control-static"><?= $objeto->getCuenta(); ?></p>
+				<p class="form-control-static"><?= $objeto->getRfcbanco(); ?></p>
 			</div>
 		</div>
 		<div class="form-group">
-		    <label for="frm_cliente_clabe" class="col-sm-2 control-label">Clave</label>
+		    <label for="frm_cliente_cuenta" class="col-sm-2 control-label">Cuenta</label>
+			<div class="col-sm-4">
+				<p class="form-control-static"><?= $objeto->getCuenta(); ?></p>
+			</div>
+			 <label for="frm_cliente_clabe" class="col-sm-2 control-label">CLABE</label>
 			<div class="col-sm-4">
 				<p class="form-control-static"><?= $objeto->getClabe(); ?></p>
-			</div>
-			<label for="frm_cliente_rfcbanco" class="col-sm-2 control-label">Colonia</label>
-			<div class="col-sm-4">
-				<p class="form-control-static"><?= $objeto->getRfcbanco(); ?></p>
 			</div>
 		</div>
 		<div class="form-group">
