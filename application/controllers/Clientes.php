@@ -431,7 +431,7 @@ class Clientes extends CI_Controller
 									    break;
 									case 'AG':
 									    $fac->setKilosintegrados($celda->nodeValue);
-									    break;
+									    break;									   
 									case 'AH':
 									    $fac->setKiloexcedido($celda->nodeValue);
 									    break;
@@ -504,6 +504,59 @@ class Clientes extends CI_Controller
 									case 'BE':
 										$objeto->setNombreCorto( $celda->nodeValue );
 										break;
+									case 'BF': //INICIO
+										$objeto->setCategoria($this->modcatalogo->getIdOption(28,$celda->nodeValue));
+										break;
+									case 'BG':
+										$objeto->setCfdi_moneda($this->modcatalogo->getIdOption(21,$celda->nodeValue));
+										break;
+									case 'BH':
+										$objeto->setCfdi_formapago($this->modcatalogo->getIdOption(18,$celda->nodeValue));
+										break;
+									case 'BI':
+										$objeto->setCfdi_metodopago($this->modcatalogo->getIdOption(20,$celda->nodeValue));
+										break;
+									case 'BJ':
+										$objeto->setCfdi_usocfdi($this->modcatalogo->getIdOption(27,$celda->nodeValue));
+										break;
+									case 'BK':
+										$objeto->setCfdi_claveprodserv($this->modcatalogo->getIdOption(16,$celda->nodeValue));
+										break;
+									case 'BL':
+										$objeto->setCfdi_claveunidad($this->modcatalogo->getIdOption(17,$celda->nodeValue));
+										break;
+									case 'BM':
+										$objeto->setCfdi_unidad($celda->nodeValue);
+										break;
+									case 'BN':
+										$objeto->setCfdi_impuesto($this->modcatalogo->getIdOption(19,$celda->nodeValue));
+										break;
+									case 'BO':
+										$objeto->setCfdi_tipofactor($this->modcatalogo->getIdOption(25,$celda->nodeValue));
+										break;
+									case 'BP':
+										$objeto->setCfdi_tasaocuota($this->modcatalogo->getIdOption(24,$celda->nodeValue));
+										break;
+										//numero decimal
+									case 'BQ':
+										$objeto->setCfdi_base($celda->nodeValue);
+										break;
+										//numero decimal
+									case 'BR':
+										$objeto->setBanco($celda->nodeValue);
+										break;
+									case 'BS':
+										$objeto->setRfcbanco($celda->nodeValue);
+										break;
+									case 'BT':
+										$objeto->setCuenta($celda->nodeValue);
+										break;
+									case 'BU':
+										$objeto->setClabe($celda->nodeValue);
+										break;
+									case 'BV':
+										$objeto->setCorreo($celda->nodeValue);
+										break;
 								}
 							}
 							$fac->addToDatabase();
@@ -513,6 +566,7 @@ class Clientes extends CI_Controller
 								$objeto->setFacturaciones($fac->getIdfacturacion());
 							$objeto->setIdentificador($objeto->nextIdentificador($objeto->getIdsucursal()));
 							$objeto->setFechaalta(Today());
+							$objeto->setFechastatus(Today());
 							$objeto->addToDatabase();
 							if($objeto->getIdcliente()==0 || $objeto->getIdcliente()=="")
 								array_push($errores,"No se almacenaron los datos del cliente");
