@@ -93,7 +93,6 @@ class Modcfdi_retenciones extends CI_Model
 	}
 	public function getAll()
 	{
-		//Establecer el campo de ordenamiento
 		$this->db->order_by('idcfdi_comprobante');
 		$regs=$this->db->get('cfdi_retenciones');
 		$this->db->reset_query();
