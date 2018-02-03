@@ -423,7 +423,7 @@ public function updateToDatabase($id=0)
 		"estadofactura" => $this->estadofactura,
 		"fechacancelacion" => $this->fechacancelacion
 	 );
-	 $this->db->where( 'idcampo', $this->idcfdi_comprobante );
+	 $this->db->where( 'idcfdi_comprobante', $this->idcfdi_comprobante );
 	 $this->db->update( 'cfdi_comprobante', $data );
 	 $this->db->reset_query();
 	 return true;
