@@ -935,6 +935,14 @@ function fnCliente()
 		$('#frm_cliente_cobranzatelefono2'		).attr('value',	$('#frm_cliente_representantetelefono2'		).val().trim()	);
 		$('#frm_cliente_cobranzaextension2'		).attr('value',	$('#frm_cliente_representanteextension2'	).val().trim()	);
 	}
+	this.Tasaocuota_automatico=function()
+	{
+		let Indice_opcion = $("#frm_cliente_cfdi_base")[0].selectedIndex;
+		let Automatico = $("#frm_cliente_cfdi_base")[0].options[Indice_opcion].innerText;
+		let Posicion = Automatico.indexOf("|");
+		let Valor = Automatico.substring(Posicion + 1).trim();
+		$("#frm_cliente_cfdi_tasaocuota").attr("value",Valor);
+	}
 	this.DisplayFrmCP=function()
 	{
 		MuestraCPFrm($('#frm_cliente_cp').val().trim(),'','','','Cliente.EstableceCP');

@@ -335,6 +335,9 @@
 			<label for="frm_cliente_categoria" class="col-sm-2 control-label">Categoria</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_categoria" name="frm_cliente_categoria" class="form-control">
+					<?php if($categorias!==false) foreach($categorias["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCategoria()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 					<?php if( $categorias !== false ) foreach( $categorias[ "opciones" ] as $opc): ?>
 						<option value="<?= $opc[ "idcatalogodet" ]; ?>" <?= ( $opc[ "idcatalogodet" ] == $objeto->getCategoria() ? 'selected="selected"' : '' ); ?> >
 							<?= $opc[ "descripcion" ]; ?>
@@ -345,6 +348,9 @@
 			<label for="frm_cliente_cfdi_moneda" class="col-sm-2 control-label">Moneda</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_cfdi_moneda" name="frm_cliente_cfdi_moneda" class="form-control">
+					<?php if($monedas!==false) foreach($monedas["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_moneda()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 					<?php if( $monedas !== false ) foreach( $monedas[ "opciones" ] as $opc): ?>
 						<option value="<?= $opc[ "idcatalogodet" ]; ?>" <?= ( $opc[ "idcatalogodet" ] == $objeto->getCfdi_moneda() ? 'selected="selected"' : '' ); ?> >
 							<?= $opc[ "descripcion" ]; ?>
@@ -357,6 +363,9 @@
 			<label for="frm_cliente_cfdi_formapago" class="col-sm-2 control-label">Forma de Pago</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_cfdi_formapago" name="frm_cliente_cfdi_formapago" class="form-control">
+					<?php if($formapagos!==false) foreach($formapagos["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_formapago()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 					<?php if( $formaspago !== false ) foreach( $formaspago[ "opciones" ] as $opc): ?>
 						<option value="<?= $opc[ "idcatalogodet" ]; ?>" <?= ( $opc[ "idcatalogodet" ] == $objeto->getcfdi_formapago() ? 'selected="selected"' : '' ); ?> >
 							<?= $opc[ "descripcion" ]; ?>
@@ -364,6 +373,12 @@
 					<?php endforeach; ?>
 				</select>
 			</div>
+			<label for="frm_cliente_cfdi_metodopago" class="col-sm-2 control-label">Metodo de Pago</label>
+			<div class="col-sm-4">
+				<select id="frm_cliente_cfdi_metodopago" name="frm_cliente_cfdi_metodopago" class="form-control">
+					<?php if($metodopagos!==false) foreach($metodopagos["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_metodopago()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 			<label for="frm_cliente_cfdi_metodopago" class="col-sm-2 control-label">Método de Pago</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_cfdi_metodopago" name="frm_cliente_cfdi_metodopago" class="form-control">
@@ -376,6 +391,12 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label for="frm_cliente_cfdi_usocfdi" class="col-sm-2 control-label">Uso de CFDI</label>
+			<div class="col-sm-10">
+				<select id="frm_cliente_cfdi_usocfdi" name="frm_cliente_cfdi_usocfdi" class="form-control">
+					<?php if($usocfdis!==false) foreach($usocfdis["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_usocfdi()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 			<label for="frm_cliente_cfdi_usocfdi" class="col-sm-2 control-label">Uso del CFDi</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_cfdi_usocfdi" name="frm_cliente_cfdi_usocfdi" class="form-control">
@@ -386,6 +407,14 @@
 					<?php endforeach; ?>
 				</select>
 			</div>
+		</div>
+		<div class="form-group">
+			<label for="frm_cliente_cfdi_claveprodserv" class="col-sm-2 control-label">Clave del Producto o Servicio</label>
+			<div class="col-sm-4">
+				<select id="frm_cliente_cfdi_claveprodserv" name="frm_cliente_cfdi_claveprodserv" class="form-control">
+					<?php if($claveprodservs!==false) foreach($claveprodservs["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_claveprodserv()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 			<label for="frm_cliente_cfdi_claveprodserv" class="col-sm-2 control-label">Producto</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_cfdi_claveprodserv" name="frm_cliente_cfdi_claveprodserv" class="form-control">
@@ -396,6 +425,12 @@
 					<?php endforeach; ?>
 				</select>
 			</div>
+			<label for="frm_cliente_cfdi_claveunidad" class="col-sm-2 control-label">Clave de Unidad</label>
+			<div class="col-sm-4">
+				<select id="frm_cliente_cfdi_claveunidad" name="frm_cliente_cfdi_claveunidad" class="form-control">
+					<?php if($claveunidads!==false) foreach($claveunidads["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_claveunidad()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 		</div>
 		<div class="form-group">
 			<label for="frm_cliente_cfdi_claveunidad" class="col-sm-2 control-label">Clave Unidad</label>
@@ -417,6 +452,9 @@
 			<label for="frm_cliente_cfdi_impuesto" class="col-sm-2 control-label">Impuesto</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_cfdi_impuesto" name="frm_cliente_cfdi_impuesto" class="form-control">
+					<?php if($impuestos!==false) foreach($impuestos["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_impuesto()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 					<?php if( $impuestos !== false ) foreach( $impuestos[ "opciones" ] as $opc): ?>
 						<option value="<?= $opc[ "idcatalogodet" ]; ?>" <?= ( $opc[ "idcatalogodet" ] == $objeto->getCfdi_impuesto() ? 'selected="selected"' : '' ); ?> >
 							<?= $opc[ "descripcion" ]; ?>
@@ -424,6 +462,12 @@
 					<?php endforeach; ?>
 				</select>
 			</div>
+			<label for="frm_cliente_cfdi_tipofactor" class="col-sm-2 control-label">Tipo de Factor</label>
+			<div class="col-sm-4">
+				<select id="frm_cliente_cfdi_tipofactor" name="frm_cliente_cfdi_tipofactor" class="form-control">
+					<?php if($tipofacts!==false) foreach($tipofacts["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_tipofactor()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 			<label for="frm_cliente_cfdi_tipofactor" class="col-sm-2 control-label">Tipo Factor</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_cfdi_tipofactor" name="frm_cliente_cfdi_tipofactor" class="form-control">
@@ -436,6 +480,13 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label for="frm_cliente_cfdi_base" class="col-sm-2 control-label">Base</label>
+			<div class="col-sm-4">
+				<select id="frm_cliente_cfdi_base" name="frm_cliente_cfdi_base" class="form-control" onchange="Cliente.Tasaocuota_automatico()">
+					<option value=""></option>
+					<?php if($bases!==false) foreach($bases["opciones"] as $opc): ?>
+						<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getCfdi_base()?'selected="selected"':''); ?> >
+							<?= $opc["descripcion"]; ?>
 			<label for="frm_cliente_cfdi_tasaocuota" class="col-sm-2 control-label">Impuesto Tasa o Cuota</label>
 			<div class="col-sm-4">
 				<select id="frm_cliente_cfdi_tasaocuota" name="frm_cliente_cfdi_tasaocuota" class="form-control" onchange="Cliente.RellenaBase()">
@@ -447,6 +498,9 @@
 					<?php endforeach; ?>
 				</select>
 			</div>
+			<label for="frm_cliente_cfdi_tasaocuota" class="col-sm-2 control-label">Tasa o Cuota</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="frm_cliente_cfdi_tasaocuota" name="frm_cliente_cfdi_tasaocuota" value="<?= $objeto->getCfdi_tasaocuota(); ?>" placeholder="Tasa o Cuota" />
 			<label for="frm_cliente_cfdi_base" class="col-sm-2 control-label">Impuesto Base</label>
 			<div class="col-sm-4">
 				<input type="text" class="form-control" id="frm_cliente_cfdi_base" name="frm_cliente_cfdi_base" value="<?= $objeto->getCfdi_base(); ?>" placeholder="Base del Impuesto" maxlength="10" />
@@ -455,6 +509,11 @@
 		<div class="form-group">
 			<label for="frm_cliente_banco" class="col-sm-2 control-label">Banco</label>
 			<div class="col-sm-4">
+				<input type="text" class="form-control" id="frm_cliente_banco" name="frm_cliente_banco" value="<?= $objeto->getBanco(); ?>" placeholder="Banco" />
+			</div>
+			<label for="frm_cliente_rfcbanco" class="col-sm-2 control-label">RFC Banco</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="frm_cliente_rfcbanco" name="frm_cliente_rfcbanco" value="<?= $objeto->getRfcbanco(); ?>" placeholder="Rfc del Banco" />
 				<input type="text" class="form-control" id="frm_cliente_banco" name="frm_cliente_banco" value="<?= $objeto->getBanco(); ?>" placeholder="Banco" maxlength="250" />
 			</div>
 			<label for="frm_cliente_rfcbanco" class="col-sm-2 control-label">RFC</label>
@@ -465,6 +524,11 @@
 		<div class="form-group">
 			<label for="frm_cliente_cuenta" class="col-sm-2 control-label">Cuenta</label>
 			<div class="col-sm-4">
+				<input type="text" class="form-control" id="frm_cliente_cuenta" name="frm_cliente_cuenta" value="<?= $objeto->getCuenta(); ?>" placeholder="Cuenta" />
+			</div>
+			<label for="frm_cliente_clabe" class="col-sm-2 control-label">CLABE</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="frm_cliente_clabe" name="frm_cliente_clabe" value="<?= $objeto->getClabe(); ?>" placeholder="Clave" />
 				<input type="number" class="form-control" id="frm_cliente_cuenta" name="frm_cliente_cuenta" value="<?= $objeto->getCuenta(); ?>" placeholder="Cuenta Bancaria" maxlength="30" min="0" />
 			</div>
 			<label for="frm_cliente_clabe" class="col-sm-2 control-label">CLABE</label>
@@ -475,6 +539,9 @@
 		<div class="form-group">
 			<label for="frm_cliente_correo" class="col-sm-2 control-label">Correo</label>
 			<div class="col-sm-10">
+				<input type="text" class="form-control" id="frm_cliente_correo" name="frm_cliente_correo" value="<?= $objeto->getCorreo(); ?>" placeholder="Correo Electronico" />
+			</div>
+		</div>
 				<input type="email" class="form-control" id="frm_cliente_correo" name="frm_cliente_correo" value="<?= $objeto->getCorreo(); ?>" placeholder="Correo" maxlength="250" />
 			</div>
 		</div>
