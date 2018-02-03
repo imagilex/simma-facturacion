@@ -1,3 +1,4 @@
+<!-- Vista empresas/formulario -->
 <?= $menumain; ?>
 <div class="container">
 	<h3>Empresas <small><?= $objeto->getIdempresa()!="" && $objeto->getIdempresa()!=0?"Actualizar":"Nueva"; ?> empresa</small></h3>
@@ -11,8 +12,22 @@
 		</div>
 		<div class="form-group">
 			<label for="frm_empresa_rfc" class="col-sm-2 control-label">Registro Federal de Contribuyentes <abbr class="text-danger" title="Campo Obligatorio">(*)</abbr></label>
-			<div class="col-sm-10">
+			<div class="col-sm-4">
 				<input type="text" class="form-control" id="frm_empresa_rfc" name="frm_empresa_rfc" value="<?= $objeto->getRfc(); ?>" placeholder="Registro Federal de Contribuyentes de la Empresa" />
+			</div>
+			<label for="frm_empresa_regimen_fiscal" class="col-sm-2 control-label">Regimen Fiscal</label>
+			<div class="col-sm-4">
+				<select class="form-control" id="frm_empresa_regimen_fiscal" name="frm_empresa_regimen_fiscal">
+					<?php 
+						if($regimen_fiscal["opciones"]!==false) 
+							foreach($regimen_fiscal["opciones"] as $opc)
+							{
+								?>
+								<option value="<?= $opc["idcatalogodet"]; ?>" <?= ($opc["idcatalogodet"]==$objeto->getRegimenfiscal()?'selected="selected"':'')?>><?= $opc["descripcion"]; ?></option>
+								<?php
+							}
+					?>
+				</select>
 			</div>
 		</div>
 		<h5>Dirección</h5>
@@ -124,3 +139,4 @@
 		</div>
 	</form>
 </div>
+<!-- Vista empresas/formulario End -->

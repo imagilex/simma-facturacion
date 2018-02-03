@@ -131,6 +131,7 @@ class Modcliente extends CI_Model
 		$this->referenciapago="";
 		$this->metodopago="";
 		$this->nombrecorto="";
+		$this->nombrecorto=0;
 		$this->cfdi_formapago=0;
 		$this->cfdi_moneda=0;
 		$this->cfdi_metodopago=0;
@@ -142,6 +143,11 @@ class Modcliente extends CI_Model
 		$this->cfdi_impuesto=0;
 		$this->cfdi_tipofactor=0;
 		$this->cfdi_tasaocuota=0;
+		$this->cfdi_unidad="";
+		$this->cfdi_base=0;
+		$this->cfdi_impuesto=0;
+		$this->cfdi_tipofactor=0;
+		$this->cfdi_tasaocuota="";
 		$this->categoria=0;
 		$this->banco="";
 		$this->cuenta="";
@@ -210,6 +216,7 @@ class Modcliente extends CI_Model
 	public function getCfdi_usocfdi() { return $this->cfdi_usocfdi; }
 	public function getCfdi_claveprodserv() { return $this->cfdi_claveprodserv; }
 	public function getCfdi_claveunidad() { return $this->cfdi_claveunidad; }
+	public function getCfdi_unidad() { return $this->cfdi_unidad; }
 	public function getCfdi_base() { return $this->cfdi_base; }
 	public function getCfdi_impuesto() { return $this->cfdi_impuesto; }
 	public function getCfdi_tipofactor() { return $this->cfdi_tipofactor; }
@@ -292,6 +299,23 @@ class Modcliente extends CI_Model
 	public function setClabe($valor) { $this->clabe= "".$valor; }
 	public function setRfcbanco($valor) { $this->rfcbanco= "".$valor; }
 	public function setCorreo($valor) { $this->correo= "".$valor; }
+	public function setCfdi_formapago( $value ) { $this->cfdi_formapago= intval( $value ); }
+	public function setCfdi_moneda( $value ) { $this->cfdi_moneda= intval( $value ); }
+	public function setCfdi_metodopago( $value ) { $this->cfdi_metodopago= intval( $value ); }
+	public function setCfdi_usocfdi( $value ) { $this->cfdi_usocfdi= intval( $value ); }
+	public function setCfdi_claveprodserv( $value ) { $this->cfdi_claveprodserv= intval( $value ); }
+	public function setCfdi_claveunidad( $value ) { $this->cfdi_claveunidad= intval( $value ); }
+	public function setCfdi_unidad( $value ) { $this->cfdi_unidad= "" . $value; }
+	public function setCfdi_base( $value ) { $this->cfdi_base= floatval( $value ); }
+	public function setCfdi_impuesto( $value ) { $this->cfdi_impuesto= intval( $value ); }
+	public function setCfdi_tipofactor( $value ) { $this->cfdi_tipofactor= intval( $value ); }
+	public function setCfdi_tasaocuota( $value ) { $this->cfdi_tasaocuota= "" . $value; }
+	public function setCategoria( $value ) { $this->categoria= intval( $value ); }
+	public function setBanco( $value ) { $this->banco= "" . $value; }
+	public function setCuenta( $value ) { $this->cuenta= "" . $value; }
+	public function setClabe( $value ) { $this->clabe= "" . $value; }
+	public function setRfcbanco( $value ) { $this->rfcbanco= "" . $value; }
+	public function setCorreo( $value ) { $this->correo= "" . $value; }
 	public function getFromDatabase($id=0)
 	{
 		if($this->idcliente==""||$this->idcliente==0)
@@ -303,6 +327,7 @@ class Modcliente extends CI_Model
 		}
 		$this->db->where('idcliente',$this->idcliente);
 		$regs=$this->db->get('cliente');
+		$this->db->reset_query();
 		if($regs->num_rows()==0)
 			return false;
 		$reg=$regs->row_array();
@@ -378,6 +403,7 @@ class Modcliente extends CI_Model
 		$this->setCorreo( $reg[ "correo" ] );
 		$this->db->where('idcliente',$this->idcliente);
 		$regs=$this->db->get('relsuccli');
+		$this->db->reset_query();
 		if($regs->num_rows()>0)
 		{
 			$reg=$regs->row_array();
@@ -386,6 +412,7 @@ class Modcliente extends CI_Model
 		$this->setFacturaciones(array());
 		$this->db->where('idcliente',$this->idcliente);
 		$regs=$this->db->get('relclifac');
+		$this->db->reset_query();
 		if($regs->num_rows()>0) foreach($regs->result_array() as $reg)
 		{
 			$this->setFacturaciones($reg["idfacturacion"]);
@@ -540,22 +567,24 @@ class Modcliente extends CI_Model
 			"clabe"=>$this->clabe,
 			"rfcbanco"=>$this->rfcbanco,
 			"correo"=>$this->correo
-			
 		);
 		if($this->identificador==""||$this->razonsocial==""||$this->idsucursal==0)
 			return false;
 		$this->db->insert('cliente',$data);
 		$this->setIdcliente($this->db->insert_id());
+		$this->db->reset_query();
 		$this->db->insert('relsuccli',array(
 			"idsucursal"=>$this->idsucursal,
 			"idcliente"=>$this->getIdcliente()
 		));
+		$this->db->reset_query();
 		if(is_array($this->facturaciones) && count($this->facturaciones)>0) foreach($this->facturaciones as $idfacturacion) if($idfacturacion>0)
 		{
 			$this->db->insert("relclifac",array(
 				"idcliente"=>$this->getIdcliente(),
 				"idfacturacion"=>$idfacturacion
 			));
+			$this->db->reset_query();
 		}
 	}
 	public function updateToDatabase()
@@ -635,14 +664,17 @@ class Modcliente extends CI_Model
 		);
 		$this->db->where('idcliente',$this->idcliente);
 		$this->db->update('cliente',$data);
+		$this->db->reset_query();
 		$this->db->where('idcliente',$this->idcliente);
 		$this->db->delete("relclifac");
+		$this->db->reset_query();
 		if(is_array($this->facturaciones) && count($this->facturaciones)>0) foreach($this->facturaciones as $idfacturacion) if($idfacturacion>0)
 		{
 			$this->db->insert("relclifac",array(
 				"idcliente"=>$this->getIdcliente(),
 				"idfacturacion"=>$idfacturacion
 			));
+			$this->db->reset_query();
 		}
 		return true;
 	}
@@ -702,6 +734,7 @@ class Modcliente extends CI_Model
 			$this->db->where($whr);
 			$this->db->order_by('razonsocial');
 			$regs=$this->db->get('cliente');
+			$this->db->reset_query();
 			if($regs->num_rows()==0)
 				return false;
 			return $regs->result_array();
@@ -727,9 +760,11 @@ class Modcliente extends CI_Model
 		{
 			$this->db->where("idfacturacion in (".implode(",",$this->facturaciones).")");
 			$this->db->delete(array("relclifac","facturacion"));
+			$this->db->reset_query();
 		}
 		$this->db->where('idcliente',$this->idcliente);
 		$this->db->delete(array('relsuccli','relcligen','relclifac','cliente'));
+		$this->db->reset_query();
 	}
 	public function nextIdentificador($idsucursal=0)
 	{
@@ -751,6 +786,7 @@ class Modcliente extends CI_Model
 		$this->db->select('idgenerador');
 		$this->db->where('idcliente',$this->idcliente);
 		$regs=$this->db->get('relcligen');
+		$this->db->reset_query();
 		if($regs->num_rows()==0)
 			return false;
 		return $regs->result_array();
@@ -762,6 +798,7 @@ class Modcliente extends CI_Model
 		else
 			$this->db->where("identificador = $identificador and idcliente in (select idcliente from relsuccli where idsucursal = $idsucursal)");
 		$regs=$this->db->get('cliente');
+		$this->db->reset_query();
 		if($regs->num_rows()==0)
 			return false;
 		return $regs->row_array()["idcliente"];
@@ -771,6 +808,7 @@ class Modcliente extends CI_Model
 		$this->db->where("CONVERT(identificador,UNSIGNED) between $cteIni and $cteFin");
 		//$this->db->order_by("CONVERT(identificador,UNSIGNED), razonsocial");
 		$regs=$this->db->get("cliente");
+		$this->db->reset_query();
 		if($regs->num_rows()>0)
 			return $regs->result_array();
 		return array();

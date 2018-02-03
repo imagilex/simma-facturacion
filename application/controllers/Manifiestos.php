@@ -546,6 +546,7 @@ class Manifiestos extends CI_Controller
 		$this->load->model("modresiduo");
 		$this->load->model("modrecoleccion");
 		$this->load->model("modcatalogo");
+		$this->load->model("modfacturacion");
 		$head=$this->load->view('html/head',array(),true);
 		$menumain=$this->load->view('menu/menumain',array(),true);
 		$this->modmanifiesto->setIdmanifiesto($idmanifiesto);
@@ -572,6 +573,8 @@ class Manifiestos extends CI_Controller
 			else
 				$recoleccion[$res["idresiduo"]]=array("residuo"=>$res,"recoleccion"=>false);
 		}
+		uasort( $recoleccion, 'OrdenaResiduosCaptura' );
+		$this->modfacturacion->getFromdatabase( $this->modmanifiesto->getTipo_cobro() );
 		$body=$this->load->view('manifiestos/vista',array(
 			"menumain"=>$menumain,
 			"manifiesto"=>$this->modmanifiesto,
@@ -590,7 +593,11 @@ class Manifiestos extends CI_Controller
 				"ventas"=>$this->modcatalogo->getCatalogo(8),
 				"cliente"=>$this->modcatalogo->getCatalogo(11)
 				),
-			"motivo"=>$this->modmanifiesto->getMotivo()
+			"motivo"=>$this->modmanifiesto->getMotivo(),
+			"tipo_cobro" => $this->modfacturacion,
+			"tipos_cobro" => $this->modcatalogo->getCatalogo( 6 ),
+			"tipos_servicio" => $this->modcatalogo->getCatalogo( 5 ),
+			"unidades" => $this->modcatalogo->getCatalogo( 29 )
 			),true);
 		$this->load->view('html/html',array("head"=>$head,"body"=>$body));
 		$this->modsesion->addLog(
@@ -630,6 +637,7 @@ class Manifiestos extends CI_Controller
 			else
 				$recoleccion[$res["idresiduo"]]=array("residuo"=>$res,"recoleccion"=>false);
 		}
+		uasort( $recoleccion, 'OrdenaResiduosCaptura' );
 		$this->load->view('manifiestos/formulariocapturakilos',array(
 			"recoleccion"=>$recoleccion,
 			"motivos"=>array(
@@ -640,7 +648,9 @@ class Manifiestos extends CI_Controller
 				"cliente"=>$this->modcatalogo->getCatalogo(11)
 				),
 			"motivo"=>$this->modmanifiesto->getMotivo(),
-			"noexterno"=>$this->modmanifiesto->getNoexterno()
+			"noexterno"=>$this->modmanifiesto->getNoexterno(),
+			"fecha_captura"=>$this->modmanifiesto->getFecha_captura(),
+			"capturista"=>$this->modmanifiesto->getCapturista()
 			));
 	}
 	public function eliminar($id)
@@ -664,6 +674,7 @@ class Manifiestos extends CI_Controller
 		$this->load->model("modresiduo");
 		$this->load->model("modrecoleccion");
 		$this->load->model("modruta");
+		$this->load->model("modcatalogo");
 		$this->modmanifiesto->setIdmanifiesto($idmanifiesto);
 		$this->modmanifiesto->getFromDatabase();
 		$this->modgenerador->setIdgenerador($this->modmanifiesto->getIdgenerador());
@@ -674,6 +685,23 @@ class Manifiestos extends CI_Controller
 		$this->modruta->getFromDatabase();
 		$this->modmanifiesto->setMotivo($this->input->post('frm_motivo'));
 		$this->modmanifiesto->setNoexterno($this->input->post('frm_noexterno'));
+		$motivos = $this->modcatalogo->getCatalogo( 8 )[ 'opciones' ];
+		$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 9 )[ 'opciones' ] );
+		$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 10 )[ 'opciones' ] );
+		$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 12 )[ 'opciones' ] );
+		$facturable = true;
+		if( $this->modmanifiesto->getMotivo() != "" && $this->modmanifiesto->getMotivo() != "0" ) {
+			foreach( $motivos as $m ) {
+				if( $m[ "idcatalogodet" ] == $this->modmanifiesto->getMotivo() ) {
+					$facturable = false;
+				}
+			}
+		}
+		$this->modmanifiesto->setFacturable( $facturable ? 1 : 0 );
+		$fecha_captura=date( 'Y-m-d H:i:s' );
+		$this->modmanifiesto->setFecha_captura( $fecha_captura );
+		$capturista=$this->session->userdata('datausr');
+		$this->modmanifiesto->setCapturista( $capturista["nombre"]." ".$capturista["apaterno"]." ".$capturista["amaterno"]  );
 		$residuos=$this->modresiduo->getAll($this->modruta->getIdsucursal());
 		$recoleccionesActual=$this->modmanifiesto->getRecoleccionesDatabase();
 		if($recoleccionesActual!==false) foreach($recoleccionesActual as $rec)
@@ -685,7 +713,9 @@ class Manifiestos extends CI_Controller
 				$rec["idrecoleccion"],
 				$rec["idrecoleccion"],
 				"recoleccion",
-				"relresrec,relmanrec"
+				"relresrec,relmanrec",
+				"fecha_captura",
+				"capturista"
 			);
 		}
 		$this->modmanifiesto->updateToDatabase();
@@ -766,6 +796,7 @@ class Manifiestos extends CI_Controller
 				else
 					$recoleccion[$res["idresiduo"]]=array("residuo"=>$res,"recoleccion"=>false);
 			}
+			uasort( $recoleccion, 'OrdenaResiduosCaptura' );
 			$frm=$this->load->view('manifiestos/formulariocapturakilos',array(
 				"recoleccion"=>$recoleccion,
 				"motivos"=>array(
@@ -1674,6 +1705,7 @@ class Manifiestos extends CI_Controller
 		$this->load->model('modmanifiesto');
 		$this->load->model('modruta');
 		$this->load->model('modrecoleccion');
+		$this->load->model('modcatalogo');
 		$fecha=$this->input->post('fecha');
 		$generador=$this->input->post('generador');
 		$manifiesto=$this->input->post('manifiesto');
@@ -1713,6 +1745,23 @@ class Manifiestos extends CI_Controller
 				$this->modmanifiesto->setIdgenerador($generador);
 				$this->modmanifiesto->setIdruta($ruta);
 				$this->modmanifiesto->setMotivo($motivo);
+				$motivos = $this->modcatalogo->getCatalogo( 8 )[ 'opciones' ];
+				$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 9 )[ 'opciones' ] );
+				$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 10 )[ 'opciones' ] );
+				$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 12 )[ 'opciones' ] );
+				$facturable = true;
+				if( $this->modmanifiesto->getMotivo() != "" && $this->modmanifiesto->getMotivo() != "0" ) {
+					foreach( $motivos as $m ) {
+						if( $m[ "idcatalogodet" ] == $this->modmanifiesto->getMotivo() ) {
+							$facturable = false;
+						}
+					}
+				}
+				$this->modmanifiesto->setFacturable( $facturable ? 1 : 0 );
+				$fecha_captura=date( 'Y-m-d H:i:s' );
+				$this->modmanifiesto->setFecha_captura( $fecha_captura );
+				$capturista=$this->session->userdata('datausr');
+				$this->modmanifiesto->setCapturista( $capturista["nombre"]." ".$capturista["apaterno"]." ".$capturista["amaterno"]  );
 				$this->modmanifiesto->addToDatabase();
 				break;
 			case 'porcapturar':
@@ -1726,6 +1775,23 @@ class Manifiestos extends CI_Controller
 				$this->modmanifiesto->setIdgenerador($generador);
 				$this->modmanifiesto->setIdruta($ruta);
 				$this->modmanifiesto->setMotivo($motivo);
+				$motivos = $this->modcatalogo->getCatalogo( 8 )[ 'opciones' ];
+				$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 9 )[ 'opciones' ] );
+				$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 10 )[ 'opciones' ] );
+				$motivos = array_merge( $motivos, $this->modcatalogo->getCatalogo( 12 )[ 'opciones' ] );
+				$facturable = true;
+				if( $this->modmanifiesto->getMotivo() != "" && $this->modmanifiesto->getMotivo() != "0" ) {
+					foreach( $motivos as $m ) {
+						if( $m[ "idcatalogodet" ] == $this->modmanifiesto->getMotivo() ) {
+							$facturable = false;
+						}
+					}
+				}
+				$this->modmanifiesto->setFacturable( $facturable ? 1 : 0 );
+				$fecha_captura=date( 'Y-m-d H:i:s' );
+				$this->modmanifiesto->setFecha_captura( $fecha_captura );
+				$capturista=$this->session->userdata('datausr');
+				$this->modmanifiesto->setCapturista( $capturista["nombre"]." ".$capturista["apaterno"]." ".$capturista["amaterno"]  );
 				$this->modmanifiesto->updateToDatabase();
 				break;
 		}
