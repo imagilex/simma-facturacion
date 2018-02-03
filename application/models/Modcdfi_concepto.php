@@ -181,7 +181,7 @@ class Modcdfi_comprobante extends CI_Model
 	}
 	public function getAll()
 	{
-		$this->db->order_by('cfdi_concepto');
+		$this->db->order_by('claveprodserv');
 		$regs=$this->db->get('cfdi_concepto');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
