@@ -1,5 +1,5 @@
 <?php 
-class ModCfdi_comprobante extends CI_Model
+class Modcfdi_comprobante extends CI_Model
 {
 	private $idcfdi_comprobante;
 	private $version;
@@ -51,7 +51,6 @@ class ModCfdi_comprobante extends CI_Model
 	public function __construct()
  {
  		parent::__construct();
-
  		$this->idcfdi_comprobante=0;
 		$this->version="";
 		$this->serie="";
@@ -99,7 +98,6 @@ class ModCfdi_comprobante extends CI_Model
 		$this->idmanifiesto=0;
 		$this->estadofactura=0;
 		$this->fechacancelacion="";
-
  }
  	public function getIdcfdi_comprobante() {return $this->idcfdi_comprobante;}
 	public function getVersion() {return $this->version;}
