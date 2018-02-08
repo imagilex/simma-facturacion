@@ -38,7 +38,7 @@ class Modcdfi_comprobante extends CI_Model
 	 	$this->$cuentapredial_numero = "";
 	}
 	//Definiciones de functiones get
-	public function getIdcdi_concepto() { return $this->idcdfi_concepto; }
+	public function getIdcfdi_concepto() { return $this->idcdfi_concepto; }
 	public function getIdcfdi_comprobante() { return $this->idcdfi_comprobante; }
 	public function getClaveprodserv() { return $this->claveprodserv; }
 	public function getClaveprodserv_sat_id() { return $this->claveprodserv_sat_id; }
@@ -54,7 +54,7 @@ class Modcdfi_comprobante extends CI_Model
 	public function getImporte() { return $this->importe; }
 	public function getDescuento() { return $this->descuento; }
 	public function getCuentapredial_numero() { return $this->cuentapredial_numero; }
-	public function setIdcdi_concepto($valor) { return $this->idcdfi_concepto = intval($valor); }
+	public function setIdcfdi_concepto($valor) { return $this->idcdfi_concepto = intval($valor); }
 	public function setIdcfdi_comprobante($valor) { return $this->idcdfi_comprobante = intval($valor); }
 	public function setClaveprodserv($valor) { return $this->claveprodserv = intval($valor); }
 	public function setClaveprodserv_sat_id($valor) { return $this->claveprodserv_sat_id = "".$valor; }
@@ -72,7 +72,7 @@ class Modcdfi_comprobante extends CI_Model
 	public function setCuentapredial_numero($valor) { return $this->cuentapredial_numero = "".$valor; }
 	public function getFromDatabase($id=0)
 	{
-		if( $this->idcdfi_concepto == "" || $this->idcdfi_comprobante == 0 )
+		if( $this->idcdfi_concepto == "" || $this->idcdfi_concepto == 0 )
 		{
 			if( $id > 0)
 				$this->idcdfi_concepto=$id;
@@ -106,7 +106,7 @@ class Modcdfi_comprobante extends CI_Model
 	}
 	public function getFromInput()
 	{
-		$this->setIdcdi_concepto( $this->input->post( "frm_cfdi_concepto_idcdfi_concepto" ) );
+		$this->setIdcfdi_concepto( $this->input->post( "frm_cfdi_concepto_idcdfi_concepto" ) );
 		$this->setIdcfdi_comprobante( $this->input->post( "frm_cfdi_concepto_idcdfi_comprobante" ) );
 		$this->setClaveprodserv( $this->input->post( "frm_cfdi_concepto_claveprodserv" ) );
 		$this->setClaveunidad_sat_id( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_id" ) );
@@ -127,7 +127,6 @@ class Modcdfi_comprobante extends CI_Model
 	public function addToDatabase()
 	{
 		$data=array(
-			"idcdfi_concepto" => $this->idcdfi_concepto,
 			"idcdfi_comprobante" => $this->idcdfi_comprobante,
 			"claveprodserv" => $this->claveprodserv,
 			"claveprodserv_sat_id" => $this->claveprodserv_sat_id,
@@ -145,7 +144,7 @@ class Modcdfi_comprobante extends CI_Model
 			"cuentapredial_numero" => $this->cuentapredial_numero
 		);
 		$this->db->insert('cfdi_concepto', $data );
-		$this->setIdCampo( $this->db->insert_id() );
+		$this->setIdcfdi_concepto( $this->db->insert_id() );
 		$this->db->reset_query();
 	}
 	public function updateToDatabase($id=0)
@@ -158,7 +157,6 @@ class Modcdfi_comprobante extends CI_Model
 				return false;
 		}
 		$data=array(
-			"idcdfi_concepto" => $this->idcdfi_concepto,
 			"idcdfi_comprobante" => $this->idcdfi_comprobante,
 			"claveprodserv" => $this->claveprodserv,
 			"claveprodserv_sat_id" => $this->claveprodserv_sat_id,
@@ -182,7 +180,7 @@ class Modcdfi_comprobante extends CI_Model
 	}
 	public function getAll()
 	{
-		$this->db->order_by('claveprodserv');
+		$this->db->order_by('idcdfi_concepto');
 		$regs=$this->db->get('cfdi_concepto');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
