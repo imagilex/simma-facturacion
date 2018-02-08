@@ -60,14 +60,13 @@ class Modcfdi_retenciones extends CI_Model
 	public function addToDatabase()
 	{
 		$data=array(
-			"idcfdi_comprobante" => $this->idcfdi_comprobante,
 			"impuesto" => $this->impuesto,
 			"impuesto_sat_id" => $this->impuesto_sat_id,
 			"impuesto_sat_txt" => $this->impuesto_sat_txt,
 			"importe" => $this->importe
 		);
 		$this->db->insert('cfdi_retenciones', $data );
-		$this->setIdCampo( $this->db->insert_id() );
+		$this->setIdcfdi_comprobante( $this->db->insert_id() );
 		$this->db->reset_query();
 	}
 	public function updateToDatabase($id=0)
@@ -80,7 +79,6 @@ class Modcfdi_retenciones extends CI_Model
 				return false;
 		}
 		$data=array(
-			"idcfdi_comprobante" => $this->idcfdi_comprobante,
 			"impuesto" => $this->impuesto,
 			"impuesto_sat_id" => $this->impuesto_sat_id,
 			"impuesto_sat_txt" => $this->impuesto_sat_txt,
