@@ -51,7 +51,6 @@ class ModCfdi_comprobante extends CI_Model
 	public function __construct()
  {
  		parent::__construct();
- 		$this->$idcfdi_comprobante=0;
 		$this->$version="";
 		$this->$serie="";
 		$this->$folio="";
