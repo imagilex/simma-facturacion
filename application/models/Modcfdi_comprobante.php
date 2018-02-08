@@ -182,7 +182,7 @@ class ModCfdi_comprobante extends CI_Model
 	public function setReceptor_nombre( $valor ) {$this->receptor_nombre="".$valor;}
 	public function setReceptor_residenciafiscal( $valor ) {$this->receptor_residenciafiscal="".$valor;}
 	public function setReceptor_numregidtrib( $valor ) {$this->receptor_numregidtrib="".$valor;}
-	public function setReceptor_usocfdi( $valor ) {$this->receptor_usocfdi;=intval($valor);}
+	public function setReceptor_usocfdi( $valor ) {$this->receptor_usocfdi=intval($valor);}
 	public function setReceptor_usocfdi_sat_id( $valor ) {$this->receptor_usocfdi_sat_id="".$valor;}
 	public function setReceptor_usocfdi_sat_txt( $valor ) {$this->receptor_usocfdi_sat_txt="".$valor;}
 	public function setUuid( $valor ) {$this->uuid="".$valor;}
