@@ -91,7 +91,6 @@ class Modcfdi_concepto_impuestos extends CI_Model
 	public function addToDatabase()
 	{
 		$data=array(
-			"idcfdi_concepto" => $this->idcfdi_concepto,
 			"tipo" => $this->tipo,
 			"base" => $this->base,
 			"impuesto" => $this->impuesto,
@@ -103,7 +102,7 @@ class Modcfdi_concepto_impuestos extends CI_Model
 			"importe" => $this->importe
 		);
 		$this->db->insert('cfdi_concepto_impuestos', $data );
-		$this->setIdCampo( $this->db->insert_id() );
+		$this->setIdcfdi_concepto( $this->db->insert_id() );
 		$this->db->reset_query();
 	}
 	public function updateToDatabase($id=0)
@@ -116,7 +115,6 @@ class Modcfdi_concepto_impuestos extends CI_Model
 				return false;
 		}
 		$data=array(
-			"idcfdi_concepto" => $this->idcfdi_concepto,
 			"tipo" => $this->tipo,
 			"base" => $this->base,
 			"impuesto" => $this->impuesto,
