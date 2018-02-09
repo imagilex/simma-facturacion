@@ -132,7 +132,6 @@ class Modcfdi_concepto_impuestos extends CI_Model
 	}
 	public function getAll()
 	{
-		//Establecer el campo de ordenamiento
 		$this->db->order_by('tipo');
 		$regs=$this->db->get('cfdi_concepto_impuestos');
 		$this->db->reset_query();
