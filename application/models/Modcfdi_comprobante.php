@@ -309,62 +309,61 @@ class Modcfdi_comprobante extends CI_Model
 		$this->setEstadofactura($this->input->post("frm_cfdi_comprobante_estadofactura"));
 		$this->setFechacancelacion($this->input->post("frm_cfdi_comprobante_fechacancelacion"));
  		return true;
- }
+ 	}
  public function addToDatabase()
- {
- $data=array(
- 	"idcfdi_comprobante" => $this->idcfdi_comprobante,
-	"version" => $this->version,
-	"serie" => $this->serie,
-	"folio" => $this->folio,
-	"fecha" => $this->fecha,
-	"sello" => $this->sello,
-	"formapago" => $this->formapago,
-	"formapago_sat_id" => $this->formapago_sat_id,
-	"formapago_sat_txt" => $this->formapago_sat_txt,
-	"nocertificado" => $this->nocertificado,
-	"certificado" => $this->certificado,
-	"condicionesdelpago" => $this->condicionesdelpago,
-	"subtotal" => $this->subtotal,
-	"descuento" => $this->descuento,
-	"moneda" => $this->moneda,
-	"moneda_sat_id" => $this->moneda_sat_id,
-	"moneda_sat_txt" => $this->moneda_sat_txt,
-	"tipocambio" => $this->tipocambio,
-	"total" => $this->total,
-	"tipodecomprobante" => $this->tipodecomprobante,
-	"tipodecomprobante_sat_id" => $this->tipodecomprobante_sat_id,
-	"tipodecomprobante_sat_txt" => $this->tipodecomprobante_sat_txt,
-	"metodopago" => $this->metodopago,
-	"metodopago_sat_id" => $this->metodopago_sat_id,
-	"metodopago_sat_txt" => $this->metodopago_sat_txt,
-	"lugarexpedicion" => $this->lugarexpedicion,
-	"confirmacion" => $this->confirmacion,
-	"emisor_rfc" => $this->emisor_rfc,
-	"emisor_nombre" => $this->emisor_nombre,
-	"emisor_regimenfiscal" => $this->emisor_regimenfiscal,
-	"emisor_regimenfiscal_sat_id" => $this->emisor_regimenfiscal_sat_id,
-	"emisor_regimenfiscal_sat_txt" => $this->emisor_regimenfiscal_sat_txt,
-	"receptor_rfc" => $this->receptor_rfc,
-	"receptor_nombre" => $this->receptor_nombre,
-	"receptor_residenciafiscal" => $this->receptor_residenciafiscal,
-	"receptor_numregidtrib" => $this->receptor_numregidtrib,
-	"receptor_usocfdi" => $this->receptor_usocfdi,
-	"receptor_usocfdi_sat_id" => $this->receptor_usocfdi_sat_id,
-	"receptor_usocfdi_sat_txt" => $this->receptor_usocfdi_sat_txt,
-	"uuid" => $this->uuid,
-	"impuestos_totalimpuestosretenidos" => $this->impuestos_totalimpuestosretenidos,
-	"impuestos_totalimpuestostrasladados" => $this->impuestos_totalimpuestostrasladados,
-	"xml" => $this->xml,
-	"pdf" => $this->pdf,
-	"idmanifiesto" => $this->idmanifiesto,
-	"estadofactura" => $this->estadofactura,
-	"fechacancelacion" => $this->fechacancelacion
-	 );
-	 $this->db->insert('cfdi_comprobante', $data );
-	 $this->setIdCampo( $this->db->insert_id() );
-	 $this->db->reset_query();
-	 }
+ 	{
+	 $data=array(
+		"version" => $this->version,
+		"serie" => $this->serie,
+		"folio" => $this->folio,
+		"fecha" => $this->fecha,
+		"sello" => $this->sello,
+		"formapago" => $this->formapago,
+		"formapago_sat_id" => $this->formapago_sat_id,
+		"formapago_sat_txt" => $this->formapago_sat_txt,
+		"nocertificado" => $this->nocertificado,
+		"certificado" => $this->certificado,
+		"condicionesdelpago" => $this->condicionesdelpago,
+		"subtotal" => $this->subtotal,
+		"descuento" => $this->descuento,
+		"moneda" => $this->moneda,
+		"moneda_sat_id" => $this->moneda_sat_id,
+		"moneda_sat_txt" => $this->moneda_sat_txt,
+		"tipocambio" => $this->tipocambio,
+		"total" => $this->total,
+		"tipodecomprobante" => $this->tipodecomprobante,
+		"tipodecomprobante_sat_id" => $this->tipodecomprobante_sat_id,
+		"tipodecomprobante_sat_txt" => $this->tipodecomprobante_sat_txt,
+		"metodopago" => $this->metodopago,
+		"metodopago_sat_id" => $this->metodopago_sat_id,
+		"metodopago_sat_txt" => $this->metodopago_sat_txt,
+		"lugarexpedicion" => $this->lugarexpedicion,
+		"confirmacion" => $this->confirmacion,
+		"emisor_rfc" => $this->emisor_rfc,
+		"emisor_nombre" => $this->emisor_nombre,
+		"emisor_regimenfiscal" => $this->emisor_regimenfiscal,
+		"emisor_regimenfiscal_sat_id" => $this->emisor_regimenfiscal_sat_id,
+		"emisor_regimenfiscal_sat_txt" => $this->emisor_regimenfiscal_sat_txt,
+		"receptor_rfc" => $this->receptor_rfc,
+		"receptor_nombre" => $this->receptor_nombre,
+		"receptor_residenciafiscal" => $this->receptor_residenciafiscal,
+		"receptor_numregidtrib" => $this->receptor_numregidtrib,
+		"receptor_usocfdi" => $this->receptor_usocfdi,
+		"receptor_usocfdi_sat_id" => $this->receptor_usocfdi_sat_id,
+		"receptor_usocfdi_sat_txt" => $this->receptor_usocfdi_sat_txt,
+		"uuid" => $this->uuid,
+		"impuestos_totalimpuestosretenidos" => $this->impuestos_totalimpuestosretenidos,
+		"impuestos_totalimpuestostrasladados" => $this->impuestos_totalimpuestostrasladados,
+		"xml" => $this->xml,
+		"pdf" => $this->pdf,
+		"idmanifiesto" => $this->idmanifiesto,
+		"estadofactura" => $this->estadofactura,
+		"fechacancelacion" => $this->fechacancelacion
+		 );
+		 $this->db->insert('cfdi_comprobante', $data );
+		 $this->setIdcfdi_comprobante( $this->db->insert_id() );
+		 $this->db->reset_query();
+		 }
 public function updateToDatabase($id=0)
  	{
 	 if( $this->idcfdi_comprobante == "" || $this->idcfdi_comprobante == 0)
@@ -375,7 +374,6 @@ public function updateToDatabase($id=0)
 	 return false;
 	 }
 	 $data=array(
-	 	"idcfdi_comprobante" => $this->idcfdi_comprobante,
 		"version" => $this->version,
 		"serie" => $this->serie,
 		"folio" => $this->folio,
@@ -428,7 +426,7 @@ public function updateToDatabase($id=0)
 	 $this->db->reset_query();
 	 return true;
 	 }
- public function getAll()
+public function getAll()
 	 {
 	 $this->db->order_by('fecha');
 	 $regs=$this->db->get('cfdi_comprobante');
