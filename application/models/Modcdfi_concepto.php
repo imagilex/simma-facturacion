@@ -1,8 +1,8 @@
 <?php
-class Modcdfi_concepto extends CI_Model
+class Modcfdi_concepto extends CI_Model
 {
-	private $idcdfi_concepto;
-	private $idcdfi_comprobante;
+	private $idcfdi_concepto;
+	private $idcfdi_comprobante;
 	private $claveprodserv;
 	private $claveprodserv_sat_id;
 	private $claveprodserv_sat_txt;
@@ -20,8 +20,8 @@ class Modcdfi_concepto extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-		$this->$idcdfi_concepto = 0;
-	 	$this->$idcdfi_comprobante = 0;
+		$this->$idcfdi_concepto = 0;
+	 	$this->$idcfdi_comprobante = 0;
 		$this->$claveprodserv = 0;
 		$this->$claveprodserv_sat_id = "";
 	 	$this->$claveprodserv_sat_txt = "";
@@ -38,8 +38,8 @@ class Modcdfi_concepto extends CI_Model
 	 	$this->$cuentapredial_numero = "";
 	}
 	//Definiciones de functiones get
-	public function getIdcfdi_concepto() { return $this->idcdfi_concepto; }
-	public function getIdcfdi_comprobante() { return $this->idcdfi_comprobante; }
+	public function getIdcfdi_concepto() { return $this->idcfdi_concepto; }
+	public function getIdcfdi_comprobante() { return $this->idcfdi_comprobante; }
 	public function getClaveprodserv() { return $this->claveprodserv; }
 	public function getClaveprodserv_sat_id() { return $this->claveprodserv_sat_id; }
 	public function getClaveprodserv_sat_txt() { return $this->claveunidad_sat_txt; }
@@ -54,8 +54,8 @@ class Modcdfi_concepto extends CI_Model
 	public function getImporte() { return $this->importe; }
 	public function getDescuento() { return $this->descuento; }
 	public function getCuentapredial_numero() { return $this->cuentapredial_numero; }
-	public function setIdcfdi_concepto($valor) { return $this->idcdfi_concepto = intval($valor); }
-	public function setIdcfdi_comprobante($valor) { return $this->idcdfi_comprobante = intval($valor); }
+	public function setIdcfdi_concepto($valor) { return $this->idcfdi_concepto = intval($valor); }
+	public function setIdcfdi_comprobante($valor) { return $this->idcfdi_comprobante = intval($valor); }
 	public function setClaveprodserv($valor) { return $this->claveprodserv = intval($valor); }
 	public function setClaveprodserv_sat_id($valor) { return $this->claveprodserv_sat_id = "".$valor; }
 	public function setClaveprodserv_sat_txt($valor) { return $this->claveunidad_sat_txt = "".$valor; }
@@ -72,22 +72,22 @@ class Modcdfi_concepto extends CI_Model
 	public function setCuentapredial_numero($valor) { return $this->cuentapredial_numero = "".$valor; }
 	public function getFromDatabase($id=0)
 	{
-		if( $this->idcdfi_concepto == "" || $this->idcdfi_concepto == 0 )
+		if( $this->idcfdi_concepto == "" || $this->idcfdi_concepto == 0)
 		{
-			if( $id > 0)
-				$this->idcdfi_concepto=$id;
+			if( $id > 0 )
+				$this->idcfdi_concepto = $id;
 			else
 				return false;
 		}
-		$this->db->where('idcdfi_concepto',$this->idcdfi_concepto);
+		$this->db->where('idcfdi_concepto',$this->idcfdi_concepto);
 		$regs=$this->db->get('cfdi_concepto');
 		$this->db->reset_query();
 		if($regs->num_rows()==0) {
 			return false;
 		}
 		$reg=$regs->row_array();
-		$this->setIdcdi_concepto( $reg[ "idcdfi_concepto" ] );
-		$this->setIdcfdi_comprobante( $reg[ "idcdfi_comprobante" ] );
+		$this->setIdcfdi_concepto( $reg[ "idcfdi_concepto" ] );
+		$this->setIdcfdi_comprobante( $reg[ "idcfdi_comprobante" ] );
 		$this->setClaveprodserv( $reg[ "claveprodserv" ] );
 		$this->setClaveprodserv_sat_id( $reg[ "claveprodserv_sat_id" ] );
 		$this->setClaveunidad_sat_txt( $reg[ "claveprodserv_sat_txt" ] );
@@ -106,8 +106,8 @@ class Modcdfi_concepto extends CI_Model
 	}
 	public function getFromInput()
 	{
-		$this->setIdcfdi_concepto( $this->input->post( "frm_cfdi_concepto_idcdfi_concepto" ) );
-		$this->setIdcfdi_comprobante( $this->input->post( "frm_cfdi_concepto_idcdfi_comprobante" ) );
+		$this->setIdcfdi_concepto( $this->input->post( "frm_cfdi_concepto_idcfdi_concepto" ) );
+		$this->setIdcfdi_comprobante( $this->input->post( "frm_cfdi_concepto_idcfdi_comprobante" ) );
 		$this->setClaveprodserv( $this->input->post( "frm_cfdi_concepto_claveprodserv" ) );
 		$this->setClaveunidad_sat_id( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_id" ) );
 		$this->setClaveunidad_sat_txt( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_txt" ) );
@@ -127,7 +127,7 @@ class Modcdfi_concepto extends CI_Model
 	public function addToDatabase()
 	{
 		$data=array(
-			"idcdfi_comprobante" => $this->idcdfi_comprobante,
+			"idcfdi_comprobante" => $this->idcfdi_comprobante,
 			"claveprodserv" => $this->claveprodserv,
 			"claveprodserv_sat_id" => $this->claveprodserv_sat_id,
 			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
@@ -149,15 +149,15 @@ class Modcdfi_concepto extends CI_Model
 	}
 	public function updateToDatabase($id=0)
 	{
-		if( $this->idcdfi_concepto == "" || $this->idcdfi_concepto == 0)
+		if( $this->idcfdi_concepto == "" || $this->idcfdi_concepto == 0)
 		{
 			if( $id > 0 )
-				$this->idcdfi_concepto = $id;
+				$this->idcfdi_concepto = $id;
 			else
 				return false;
 		}
 		$data=array(
-			"idcdfi_comprobante" => $this->idcdfi_comprobante,
+			"idcfdi_comprobante" => $this->idcfdi_comprobante,
 			"claveprodserv" => $this->claveprodserv,
 			"claveprodserv_sat_id" => $this->claveprodserv_sat_id,
 			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
@@ -173,14 +173,14 @@ class Modcdfi_concepto extends CI_Model
 			"descuento" => $this->descuento,
 			"cuentapredial_numero" => $this->cuentapredial_numero
 		);
-		$this->db->where( 'idcdfi_concepto', $this->idcdfi_concepto );
+		$this->db->where( 'idcfdi_concepto', $this->idcfdi_concepto );
 		$this->db->update( 'cfdi_concepto', $data );
 		$this->db->reset_query();
 		return true;
 	}
 	public function getAll()
 	{
-		$this->db->order_by('idcdfi_concepto');
+		$this->db->order_by('idcfdi_concepto');
 		$regs=$this->db->get('cfdi_concepto');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
@@ -189,14 +189,14 @@ class Modcdfi_concepto extends CI_Model
 	}
 	public function delete($id=0)
 	{
-		if( $this->idcdfi_concepto == "" || $this->idcdfi_concepto == 0)
+		if( $this->idcfdi_concepto == "" || $this->idcfdi_concepto == 0)
 		{
 			if( $id > 0 )
-				$this->idcdfi_concepto = $id;
+				$this->idcfdi_concepto = $id;
 			else
 				return false;
 		}
-		$this->db->where('idcdfi_concepto',$this->idcdfi_concepto);
+		$this->db->where('idcfdi_concepto',$this->idcfdi_concepto);
 		$this->db->delete( array('cfdi_concepto' ) );
 		$this->db->reset_query();
 	}
