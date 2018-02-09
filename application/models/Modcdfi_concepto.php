@@ -1,5 +1,5 @@
 <?php
-class Modcdfi_concepto extends CI_Model
+class Modcdfi_comprobante extends CI_Model
 {
 	private $idcdfi_concepto;
 	private $idcdfi_comprobante;
