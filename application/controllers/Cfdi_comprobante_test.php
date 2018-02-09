@@ -221,7 +221,6 @@ class Cfdi_comprobante_test extends CI_Controller {
 		$objeto = new Modcfdi_comprobante();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_comprobante("1");
 		$objeto->setVersion("3.0");
 		$objeto->setSerie("SerieY");
 		$objeto->setFolio("Fol2");
