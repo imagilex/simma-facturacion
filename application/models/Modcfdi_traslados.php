@@ -97,7 +97,7 @@ public function addToDatabase()
 			"importe" => $this->importe,
 		);
 		$this->db->insert('cfdi_traslados', $data );
-		$this->setIdCampo( $this->db->insert_id() );
+		$this->setIdcfdi_comprobante( $this->db->insert_id() );
 		$this->db->reset_query();
 	}
 public function updateToDatabase($id=0)
