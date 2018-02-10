@@ -37,7 +37,6 @@ class Modcfdi_concepto extends CI_Model
 	 	$this->$descuento = 0.0; 
 	 	$this->$cuentapredial_numero = "";
 	}
-	//Definiciones de functiones get
 	public function getIdcfdi_concepto() { return $this->idcfdi_concepto; }
 	public function getIdcfdi_comprobante() { return $this->idcfdi_comprobante; }
 	public function getClaveprodserv() { return $this->claveprodserv; }
