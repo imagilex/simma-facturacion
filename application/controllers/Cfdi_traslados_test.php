@@ -33,26 +33,28 @@ class Cfdi_traslados_test extends CI_Controller {
 		$objeto->setImporte( "150" );
 
 		var_dump( "getIdcfdi_comprobante", $objeto->getIdcfdi_comprobante() );
-		var_dump( "get", $objeto->get() );
-		var_dump( "get", $objeto->get() );
-		var_dump( "get", $objeto->get() );
-		var_dump( "get", $objeto->get() );
-		var_dump( "get", $objeto->get() );
-		var_dump( "get", $objeto->get() );
-		var_dump( "get", $objeto->get() );
+		var_dump( "getImpuesto", $objeto->getImpuesto() );
+		var_dump( "getImpuesto_sat_id", $objeto->getImpuesto_sat_id() );
+		var_dump( "getImpuesto_sat_txt", $objeto->getImpuesto_sat_txt() );
+		var_dump( "getTipofactor", $objeto->getTipofactor() );
+		var_dump( "getTipofactor_sat_id", $objeto->getTipofactor_sat_id() );
+		var_dump( "getTipofactor_sat_txt", $objeto->getTipofactor_sat_txt() );
+		var_dump( "getTasaocuota", $objeto->getTasaocuota() );
+		var_dump( "getImporte", $objeto->getImporte() );
 	}
 	function test_add() {
 		$this->load->model( "modcfdi_traslados" );
 		$objeto = new Modcfdi_traslados();
 
-		$objeto->setIdcfdi_comprobante( "1" );
-		$objeto->set( "3.0" );
-		$objeto->set( "SerieB" );
-		$objeto->set( "Fol8" );
-		$objeto->set( "124" );
-		$objeto->set( "01" );
-		$objeto->set( "Efectivo" );
-		$objeto->set( "205" );
+		$objeto->setIdcfdi_comprobante( "10" );
+		$objeto->setImpuesto( "128" );
+		$objeto->setImpuesto_sat_id( "002" );
+		$objeto->setImpuesto_sat_txt( "IVA" );
+		$objeto->setTipofactor( "135" );
+		$objeto->setTipofactor_sat_id( "Tasa" );
+		$objeto->setTipofactor_sat_txt( "Tasa" );
+		$objeto->setTasaocuota( "100" );
+		$objeto->setImporte( "150" );
 
 		$objeto->addToDatabase();
 
@@ -69,13 +71,15 @@ class Cfdi_traslados_test extends CI_Controller {
 		$objeto = new Modcfdi_traslados();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->set( "3.5" );
-		$objeto->set( "SerieX" );
-		$objeto->set( "Fol9" );
-		$objeto->set( "125" );
-		$objeto->set( "02" );
-		$objeto->set( "Cheque nominativo" );
-		$objeto->set( "206" );
+		$objeto->setIdcfdi_comprobante( "11" );
+		$objeto->setImpuesto( "128" );
+		$objeto->setImpuesto_sat_id( "002" );
+		$objeto->setImpuesto_sat_txt( "IVA" );
+		$objeto->setTipofactor( "135" );
+		$objeto->setTipofactor_sat_id( "Tasa" );
+		$objeto->setTipofactor_sat_txt( "Tasa" );
+		$objeto->setTasaocuota( "999" );
+		$objeto->setImporte( "111" );
 
 		$objeto->updateToDatabase();
 	}
