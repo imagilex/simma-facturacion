@@ -41,9 +41,7 @@ class Modcfdi_traslados extends CI_Model
 	public function setTipofactor_sat_txt($valor) {$this->tipofactor_sat_txt= "".$valor;}
 	public function setTasaocuota($valor) {$this->tasaocuota= floatval($valor);}
 	public function setImporte($valor) {$this->importe= floatval($valor);}
-
-	}
-public function getFromDatabase($id=0)
+	public function getFromDatabase($id=0)
 	{
 		if( $this->idcfdi_comprobante == "" || $this->idcfdi_comprobante == 0 )
 		{
