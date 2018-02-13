@@ -6,7 +6,7 @@ class Cfdi_traslados_test extends CI_Controller {
 		$objeto = new Modcfdi_traslados();
 		var_dump( $objeto );
 		
-		$objeto->setIdcfdi_comprobante( "2" );
+		$objeto->setIdcfdi_comprobante( "10" );
 		$objeto->setImpuesto( "128" );
 		$objeto->setImpuesto_sat_id( "002" );
 		$objeto->setImpuesto_sat_txt( "IVA" );
@@ -22,7 +22,7 @@ class Cfdi_traslados_test extends CI_Controller {
 		$this->load->model( "modcfdi_traslados" );
 		$objeto = new Modcfdi_traslados();
 
-		$objeto->setIdcfdi_comprobante( "2" );
+		$objeto->setIdcfdi_comprobante( "10" );
 		$objeto->setImpuesto( "128" );
 		$objeto->setImpuesto_sat_id( "002" );
 		$objeto->setImpuesto_sat_txt( "IVA" );
@@ -46,7 +46,7 @@ class Cfdi_traslados_test extends CI_Controller {
 		$this->load->model( "modcfdi_traslados" );
 		$objeto = new Modcfdi_traslados();
 
-		$objeto->setIdcfdi_comprobante( "2" );
+		$objeto->setIdcfdi_comprobante( "10" );
 		$objeto->setImpuesto( "128" );
 		$objeto->setImpuesto_sat_id( "002" );
 		$objeto->setImpuesto_sat_txt( "IVA" );
@@ -71,7 +71,7 @@ class Cfdi_traslados_test extends CI_Controller {
 		$objeto = new Modcfdi_traslados();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_comprobante( "2" );
+		$objeto->setIdcfdi_comprobante( "11" );
 		$objeto->setImpuesto( "128" );
 		$objeto->setImpuesto_sat_id( "002" );
 		$objeto->setImpuesto_sat_txt( "IVA" );
