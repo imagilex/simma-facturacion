@@ -6,7 +6,7 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto = new Modcfdi_concepto_impuestos();
 		var_dump( $objeto );
 		
-		$objeto->setIdcfdi_concepto("1");
+		$objeto->setIdcfdi_concepto("3");
 		$objeto->setTipo("B");
 		$objeto->setBase("2.4");
 		$objeto->setImpuesto("128");
@@ -23,7 +23,7 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$this->load->model( "modcfdi_concepto_impuestos" );
 		$objeto = new Modcfdi_concepto_impuestos();
 
-		$objeto->setIdcfdi_concepto("1");
+		$objeto->setIdcfdi_concepto("3");
 		$objeto->setTipo("B");
 		$objeto->setBase("2.4");
 		$objeto->setImpuesto("128");
@@ -34,7 +34,6 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto->setTipofactor_sat_txt("Tasa");
 		$objeto->setImporte("3.4");
 		
-
 		var_dump( "getIdcfdi_concepto", $objeto->getIdcfdi_concepto() );
 		var_dump( "getTipo", $objeto->getTipo() );
 		var_dump( "getBase", $objeto->getBase() );
@@ -50,8 +49,8 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$this->load->model( "modcfdi_concepto_impuestos" );
 		$objeto = new Modcfdi_concepto_impuestos();
 
-		$objeto->setIdcfdi_concepto("1");
-		$objeto->setTipo("C");
+		$objeto->setIdcfdi_concepto("3");
+		$objeto->setTipo("B");
 		$objeto->setBase("2.4");
 		$objeto->setImpuesto("128");
 		$objeto->setImpuesto_sat_id("002");
@@ -62,7 +61,7 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto->setImporte("3.4");
 		$objeto->addToDatabase();
 
-		var_dump( $objeto->getIdcfdi_comprobante() );
+		var_dump( $objeto->getIdcfdi_concepto() );
 	}
 	public function test_getdb( $id = 0 ) {
 		$this->load->model( "modcfdi_concepto_impuestos" );
@@ -75,16 +74,16 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto = new Modcfdi_concepto_impuestos();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_concepto("1");
-		$objeto->setTipo("B");
-		$objeto->setBase("2.4");
+		$objeto->setIdcfdi_concepto("3");
+		$objeto->setTipo("F");
+		$objeto->setBase("23.4");
 		$objeto->setImpuesto("128");
 		$objeto->setImpuesto_sat_id("002");
 		$objeto->setImpuesto_sat_txt("IVA");
 		$objeto->setTipofactor("135");
 		$objeto->setTipofactor_sat_id("Tasa");
 		$objeto->setTipofactor_sat_txt("Tasa");
-		$objeto->setImporte("3.4");
+		$objeto->setImporte("31.4");
 		
 
 		$objeto->updateToDatabase();
