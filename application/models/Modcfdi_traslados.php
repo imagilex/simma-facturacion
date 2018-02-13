@@ -43,7 +43,6 @@ class Modcfdi_traslados extends CI_Model
 	public function setImporte($valor) {$this->importe= floatval($valor);}
 	public function getFromDatabase($id=0)
 	{
-		$this->db->where('cfdi_comprobante',$this->cfdi_comprobante);
 		$regs=$this->db->get('cfdi_traslados');
 		$this->db->reset_query();
 		if($regs->num_rows()==0) {
