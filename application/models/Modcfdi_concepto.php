@@ -20,22 +20,22 @@ class Modcfdi_concepto extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-		$this->$idcfdi_concepto = 0;
-	 	$this->$idcfdi_comprobante = 0;
-		$this->$claveprodserv = 0;
-		$this->$claveprodserv_sat_id = "";
-	 	$this->$claveprodserv_sat_txt = "";
-		$this->$noidentificacion = "";
-	 	$this->$cantidad = 0.0;
-	 	$this->$claveunidad = 0;
-	 	$this->$claveunidad_sat_id = "";
-		$this->$claveunidad_sat_txt= "";
-	 	$this->$unidad = 0;
-	 	$this->$descripcion = "";
-	 	$this->$valorunitario = 0.0;
-		$this->$importe = 0.0;
-	 	$this->$descuento = 0.0; 
-	 	$this->$cuentapredial_numero = "";
+		$this->idcfdi_concepto = 0;
+	 	$this->idcfdi_comprobante = 0;
+		$this->claveprodserv = 0;
+		$this->claveprodserv_sat_id = "";
+	 	$this->claveprodserv_sat_txt = "";
+		$this->noidentificacion = "";
+	 	$this->cantidad = 0.0;
+	 	$this->claveunidad = 0;
+	 	$this->claveunidad_sat_id = "";
+		$this->claveunidad_sat_txt= "";
+	 	$this->unidad = 0;
+	 	$this->descripcion = "";
+	 	$this->valorunitario = 0.0;
+		$this->importe = 0.0;
+	 	$this->descuento = 0.0; 
+	 	$this->cuentapredial_numero = "";
 	}
 	public function getIdcfdi_concepto() { return $this->idcfdi_concepto; }
 	public function getIdcfdi_comprobante() { return $this->idcfdi_comprobante; }
