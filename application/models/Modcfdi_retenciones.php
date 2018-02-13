@@ -27,7 +27,7 @@ class Modcfdi_retenciones extends CI_Model
 	public function setImporte( $valor ) { $this->importe = floatval( $valor ); }
 	public function getFromDatabase($id=0)
 	{
-		$this->db->where('cfdi_comprobante',$this->cfdi_comprobante);
+		$this->db->where('idcfdi_comprobante',$this->idcfdi_comprobante);
 		$regs=$this->db->get('cfdi_retenciones');
 		$this->db->reset_query();
 		if($regs->num_rows()==0) {
@@ -71,7 +71,7 @@ class Modcfdi_retenciones extends CI_Model
 			"impuesto_sat_txt" => $this->impuesto_sat_txt,
 			"importe" => $this->importe
 		);
-		$this->db->where( 'cfdi_comprobante', $this->cfdi_comprobante );
+		$this->db->where( 'idcfdi_comprobante', $this->idcfdi_comprobante );
 		$this->db->update( 'cfdi_retenciones', $data );
 		$this->db->reset_query();
 		return true;
@@ -86,7 +86,7 @@ class Modcfdi_retenciones extends CI_Model
 	}
 	public function delete($id=0)
 	{
-		$this->db->where('cfdi_comprobante',$this->cfdi_comprobante);
+		$this->db->where('idcfdi_comprobante',$this->idcfdi_comprobante);
 		$this->db->delete( array('cfdi_retenciones' ) );
 		$this->db->reset_query();
 	}
