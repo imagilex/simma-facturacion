@@ -43,14 +43,7 @@ class Modcfdi_traslados extends CI_Model
 	public function setImporte($valor) {$this->importe= floatval($valor);}
 	public function getFromDatabase($id=0)
 	{
-		if( $this->idcfdi_comprobante == "" || $this->idcfdi_comprobante == 0 )
-		{
-			if( $id > 0)
-				$this->idcfdi_comprobante=$id;
-			else
-				return false;
-		}
-		$this->db->where('idcfdi_comprobante',$this->idcfdi_comprobante);
+		$this->db->where('cfdi_comprobante',$this->cfdi_comprobante);
 		$regs=$this->db->get('cfdi_traslados');
 		$this->db->reset_query();
 		if($regs->num_rows()==0) {
@@ -95,18 +88,10 @@ public function addToDatabase()
 			"importe" => $this->importe,
 		);
 		$this->db->insert('cfdi_traslados', $data );
-		$this->setIdcfdi_comprobante( $this->db->insert_id() );
 		$this->db->reset_query();
 	}
 public function updateToDatabase($id=0)
 	{
-		if( $this->idcfdi_comprobante == "" || $this->idcfdi_comprobante == 0)
-		{
-			if( $id > 0 )
-				$this->idcfdi_comprobante = $id;
-			else
-				return false;
-		}
 		$data=array(
 			"idcfdi_comprobante" => $this->idcfdi_comprobante,
 			"impuesto" => $this->impuesto,
@@ -118,14 +103,13 @@ public function updateToDatabase($id=0)
 			"tasaocuota" => $this->tasaocuota,
 			"importe" => $this->importe,
 		);
-		$this->db->where( 'idcfdi_comprobante', $this->idcfdi_comprobante );
+		$this->db->where( 'cfdi_comprobante', $this->cfdi_comprobante );
 		$this->db->update( 'cfdi_traslados', $data );
 		$this->db->reset_query();
 		return true;
 	}
 public function getAll()
 	{
-		$this->db->order_by('');
 		$regs=$this->db->get('cfdi_traslados');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
@@ -134,14 +118,7 @@ public function getAll()
 	}
 public function delete($id=0)
 	{
-		if( $this->idcfdi_comprobante == "" || $this->idcfdi_comprobante == 0)
-		{
-			if( $id > 0 )
-				$this->idcfdi_comprobante = $id;
-			else
-				return false;
-		}
-		$this->db->where('idcfdi_comprobante',$this->idcfdi_comprobante);
+		$this->db->where('cfdi_comprobante',$this->cfdi_comprobante);
 		$this->db->delete( array('cfdi_traslados' ) );
 		$this->db->reset_query();
 	}
