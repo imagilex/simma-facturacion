@@ -6,22 +6,22 @@ class Cfdi_concepto_test extends CI_Controller {
 		$objeto = new Modcfdi_concepto();
 		var_dump( $objeto );
 		
-		$objeto->Idcfdi_concepto("1");
-		$objeto->Idcfdi_comprobante("2");
-		$objeto->Claveprodserv("111");
-		$objeto->Claveprodserv_sat_id("24131513");
-		$objeto->Claveprodserv_sat_txt("Refrigerante");
-		$objeto->Noidentificacion("uhvvu4432");
-		$objeto->Cantidad("13.4");
-		$objeto->Claveunidad("121");
-		$objeto->Claveunidad_sat_id("E48");
-		$objeto->Claveunidad_sat_txt("Unidad de servicio");
-		$objeto->Unidad("hjj43");
-		$objeto->Descripcion("estohacemferw");
-		$objeto->Valorunitario("12.1");
-		$objeto->Importe("1.2");
-		$objeto->Descuento("1.3");
-		$objeto->Cuentapredial_numero("hgvchfgyi3432");
+		$objeto->setIdcfdi_concepto("1");
+		$objeto->setIdcfdi_comprobante("2");
+		$objeto->setClaveprodserv("111");
+		$objeto->setClaveprodserv_sat_id("24131513");
+		$objeto->setClaveprodserv_sat_txt("Refrigerante");
+		$objeto->setNoidentificacion("uhvvu4432");
+		$objeto->setCantidad("13.4");
+		$objeto->setClaveunidad("121");
+		$objeto->setClaveunidad_sat_id("E48");
+		$objeto->setClaveunidad_sat_txt("Unidad de servicio");
+		$objeto->setUnidad("hjj43");
+		$objeto->setDescripcion("estohacemferw");
+		$objeto->setValorunitario("12.1");
+		$objeto->setImporte("1.2");
+		$objeto->setDescuento("1.3");
+		$objeto->setCuentapredial_numero("hgvchfgyi3432");
 	
 		var_dump( $objeto );
 	}
@@ -29,24 +29,24 @@ class Cfdi_concepto_test extends CI_Controller {
 		$this->load->model( "modcfdi_concepto" );
 		$objeto = new Modcfdi_concepto();
 
-		$objeto->Idcfdi_concepto("1");
-		$objeto->Idcfdi_comprobante("2");
-		$objeto->Claveprodserv("111");
-		$objeto->Claveprodserv_sat_id("24131513");
-		$objeto->Claveprodserv_sat_txt("Refrigerante");
-		$objeto->Noidentificacion("uhvvu4432");
-		$objeto->Cantidad("13.4");
-		$objeto->Claveunidad("121");
-		$objeto->Claveunidad_sat_id("E48");
-		$objeto->Claveunidad_sat_txt("Unidad de servicio");
-		$objeto->Unidad("hjj43");
-		$objeto->Descripcion("estohacemferw");
-		$objeto->Valorunitario("12.1");
-		$objeto->Importe("1.2");
-		$objeto->Descuento("1.3");
-		$objeto->Cuentapredial_numero("hgvchfgyi3432");
+		$objeto->setIdcfdi_concepto("1");
+		$objeto->setIdcfdi_comprobante("2");
+		$objeto->setClaveprodserv("111");
+		$objeto->setClaveprodserv_sat_id("24131513");
+		$objeto->setClaveprodserv_sat_txt("Refrigerante");
+		$objeto->setNoidentificacion("uhvvu4432");
+		$objeto->setCantidad("13.4");
+		$objeto->setClaveunidad("121");
+		$objeto->setClaveunidad_sat_id("E48");
+		$objeto->setClaveunidad_sat_txt("Unidad de servicio");
+		$objeto->setUnidad("hjj43");
+		$objeto->setDescripcion("estohacemferw");
+		$objeto->setValorunitario("12.1");
+		$objeto->setImporte("1.2");
+		$objeto->setDescuento("1.3");
+		$objeto->setCuentapredial_numero("hgvchfgyi3432");
 
-		var_dump( "getIdcfdi_concepto", $objeto->getIdfcdi_concepto() );
+		var_dump( "getIdcfdi_concepto", $objeto->getIdcfdi_concepto() );
 		var_dump( "getIdcfdi_comprobante", $objeto->getIdcfdi_comprobante() );
 		var_dump( "getClaveprodserv", $objeto->getClaveprodserv() );
 		var_dump( "getClaveprodserv_sat_id", $objeto->getClaveprodserv_sat_id() );
@@ -67,21 +67,22 @@ class Cfdi_concepto_test extends CI_Controller {
 		$this->load->model( "modcfdi_concepto" );
 		$objeto = new Modcfdi_concepto();
 
-		$objeto->Idcfdi_comprobante("2");
-		$objeto->Claveprodserv("111");
-		$objeto->Claveprodserv_sat_id("24131513");
-		$objeto->Claveprodserv_sat_txt("Refrigerante");
-		$objeto->Noidentificacion("uhvvu4432");
-		$objeto->Cantidad("13.4");
-		$objeto->Claveunidad("121");
-		$objeto->Claveunidad_sat_id("E48");
-		$objeto->Claveunidad_sat_txt("Unidad de servicio");
-		$objeto->Unidad("hjj43");
-		$objeto->Descripcion("estohacemferw");
-		$objeto->Valorunitario("12.1");
-		$objeto->Importe("1.2");
-		$objeto->Descuento("1.3");
-		$objeto->Cuentapredial_numero("hgvchfgyi3432");
+		$objeto->setIdcfdi_comprobante("2");
+		$objeto->setClaveprodserv("111");
+		$objeto->setClaveprodserv_sat_id("24131513");
+		$objeto->setClaveprodserv_sat_txt("Refrigerante");
+		$objeto->setNoidentificacion("uhvvu4432");
+		$objeto->setCantidad("13.4");
+		$objeto->setClaveunidad("121");
+		$objeto->setClaveunidad_sat_id("E48");
+		$objeto->setClaveunidad_sat_txt("Unidad de servicio");
+		$objeto->setUnidad("hjj43");
+		$objeto->setDescripcion("estohacemferw");
+		$objeto->setValorunitario("12.1");
+		$objeto->setImporte("1.2");
+		$objeto->setDescuento("1.3");
+		$objeto->setCuentapredial_numero("hgvchfgyi3432");
+
 		$objeto->addToDatabase();
 
 		var_dump( $objeto->getIdcfdi_comprobante() );
@@ -97,21 +98,21 @@ class Cfdi_concepto_test extends CI_Controller {
 		$objeto = new Modcfdi_concepto();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->Idcfdi_comprobante("2");
-		$objeto->Claveprodserv("111");
-		$objeto->Claveprodserv_sat_id("24131513");
-		$objeto->Claveprodserv_sat_txt("Refrigerante");
-		$objeto->Noidentificacion("uhvvu4432");
-		$objeto->Cantidad("13.4");
-		$objeto->Claveunidad("121");
-		$objeto->Claveunidad_sat_id("E48");
-		$objeto->Claveunidad_sat_txt("Unidad de servicio");
-		$objeto->Unidad("hjj43");
-		$objeto->Descripcion("estohacemferw");
-		$objeto->Valorunitario("12.1");
-		$objeto->Importe("1.2");
-		$objeto->Descuento("1.3");
-		$objeto->Cuentapredial_numero("hgvchfgyi3432");
+		$objeto->setIdcfdi_comprobante("2");
+		$objeto->setClaveprodserv("1");
+		$objeto->setClaveprodserv_sat_id("24131513");
+		$objeto->setClaveprodserv_sat_txt("Refrigerante");
+		$objeto->setNoidentificacion("987412nuj");
+		$objeto->setCantidad("13.4");
+		$objeto->setClaveunidad("121");
+		$objeto->setClaveunidad_sat_id("E48");
+		$objeto->setClaveunidad_sat_txt("Unidad de servicio");
+		$objeto->setUnidad("hjj43");
+		$objeto->setDescripcion("estohacemferw");
+		$objeto->setValorunitario("12.10");
+		$objeto->setImporte("10.2");
+		$objeto->setDescuento("11.3");
+		$objeto->setCuentapredial_numero("hgvchfgyi3432");
 
 		$objeto->updateToDatabase();
 	}
