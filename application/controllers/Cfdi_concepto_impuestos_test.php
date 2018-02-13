@@ -75,7 +75,7 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto->getFromDatabase( $id );
 
 		$objeto->setIdcfdi_concepto("3");
-		$objeto->setTipo("F");
+		$objeto->setTipo("H");
 		$objeto->setBase("23.4");
 		$objeto->setImpuesto("128");
 		$objeto->setImpuesto_sat_id("002");
