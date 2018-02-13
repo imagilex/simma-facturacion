@@ -74,7 +74,10 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$this->load->model( "modcfdi_concepto_impuestos" );
 		$objeto = new Modcfdi_concepto_impuestos();
 		$objeto->getFromDatabase( $id );
-
+    
+		$objeto->setIdcfdi_concepto("3");
+		$objeto->setTipo("H");
+		$objeto->setBase("23.4");
 		$objeto->setIdcfdi_concepto("1");
 		$objeto->setTipo("B");
 		$objeto->setBase("2.4");
