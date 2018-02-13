@@ -27,14 +27,7 @@ class Modcfdi_retenciones extends CI_Model
 	public function setImporte( $valor ) { $this->importe = floatval( $valor ); }
 	public function getFromDatabase($id=0)
 	{
-		if( $this->idcfdi_comprobante == "" || $this->idcfdi_comprobante == 0 )
-		{
-			if( $id > 0)
-				$this->idcfdi_comprobante=$id;
-			else
-				return false;
-		}
-		$this->db->where('idcfdi_comprobante',$this->idcfdi_comprobante);
+		$this->db->where('cfdi_comprobante',$this->cfdi_comprobante);
 		$regs=$this->db->get('cfdi_retenciones');
 		$this->db->reset_query();
 		if($regs->num_rows()==0) {
@@ -67,18 +60,10 @@ class Modcfdi_retenciones extends CI_Model
 			"importe" => $this->importe
 		);
 		$this->db->insert('cfdi_retenciones', $data );
-		$this->setIdcfdi_comprobante( $this->db->insert_id() );
 		$this->db->reset_query();
 	}
 	public function updateToDatabase($id=0)
 	{
-		if( $this->idcfdi_comprobante == "" || $this->idcfdi_comprobante == 0)
-		{
-			if( $id > 0 )
-				$this->idcfdi_comprobante = $id;
-			else
-				return false;
-		}
 		$data=array(
 			"idcfdi_comprobante" => $this->idcfdi_comprobante,
 			"impuesto" => $this->impuesto,
@@ -86,14 +71,13 @@ class Modcfdi_retenciones extends CI_Model
 			"impuesto_sat_txt" => $this->impuesto_sat_txt,
 			"importe" => $this->importe
 		);
-		$this->db->where( 'idcfdi_comprobante', $this->idcfdi_comprobante );
+		$this->db->where( 'cfdi_comprobante', $this->cfdi_comprobante );
 		$this->db->update( 'cfdi_retenciones', $data );
 		$this->db->reset_query();
 		return true;
 	}
 	public function getAll()
 	{
-		$this->db->order_by('idcfdi_comprobante');
 		$regs=$this->db->get('cfdi_retenciones');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
@@ -102,14 +86,7 @@ class Modcfdi_retenciones extends CI_Model
 	}
 	public function delete($id=0)
 	{
-		if( $this->idcfdi_comprobante == "" || $this->idcfdi_comprobante == 0)
-		{
-			if( $id > 0 )
-				$this->idcfdi_comprobante = $id;
-			else
-				return false;
-		}
-		$this->db->where('idcfdi_comprobante',$this->idcfdi_comprobante);
+		$this->db->where('cfdi_comprobante',$this->cfdi_comprobante);
 		$this->db->delete( array('cfdi_retenciones' ) );
 		$this->db->reset_query();
 	}
