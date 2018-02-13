@@ -48,7 +48,7 @@ class Modcfdi_concepto_impuestos extends CI_Model
 	public function setImporte( $valor ) { $this->importe = floatval( $valor ); }
 	public function getFromDatabase($id=0)
 	{
-		$this->db->where('cfdi_concepto',$this->cfdi_concepto);
+		$this->db->where('idcfdi_concepto',$this->idcfdi_concepto);
 		$regs=$this->db->get('cfdi_concepto_impuestos');
 		$this->db->reset_query();
 		if($regs->num_rows()==0) {
@@ -112,7 +112,7 @@ class Modcfdi_concepto_impuestos extends CI_Model
 			"tipofactor_sat_txt" => $this->tipofactor_sat_txt,
 			"importe" => $this->importe
 		);
-		$this->db->where( 'cfdi_concepto', $this->cfdi_concepto );
+		$this->db->where( 'idcfdi_concepto', $this->idcfdi_concepto );
 		$this->db->update( 'cfdi_concepto_impuestos', $data );
 		$this->db->reset_query();
 		return true;
@@ -127,7 +127,7 @@ class Modcfdi_concepto_impuestos extends CI_Model
 	}
 	public function delete($id=0)
 	{
-		$this->db->where('cfdi_concepto',$this->cfdi_concepto);
+		$this->db->where('idcfdi_concepto',$this->idcfdi_concepto);
 		$this->db->delete( array('cfdi_concepto_impuestos' ) );
 		$this->db->reset_query();
 	}
