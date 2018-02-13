@@ -50,7 +50,7 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto = new Modcfdi_concepto_impuestos();
 
 		$objeto->setIdcfdi_concepto("3");
-		$objeto->setTipo("C");
+		$objeto->setTipo("B");
 		$objeto->setBase("2.4");
 		$objeto->setImpuesto("128");
 		$objeto->setImpuesto_sat_id("002");
@@ -75,7 +75,7 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto->getFromDatabase( $id );
 
 		$objeto->setIdcfdi_concepto("3");
-		$objeto->setTipo("D");
+		$objeto->setTipo("F");
 		$objeto->setBase("23.4");
 		$objeto->setImpuesto("128");
 		$objeto->setImpuesto_sat_id("002");
