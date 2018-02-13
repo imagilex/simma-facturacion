@@ -116,6 +116,14 @@ public function getAll()
 	}
 public function delete($id=0)
 	{
+		if($this->idcfdi_comprobante==""||$this->idcfdi_comprobante==0)
+		{
+			if($id>0)
+				$this->idcfdi_comprobante=$id;
+			else
+				return false;
+		}
+		$this->db->where('idcfdi_comprobante',$this->idcfdi_comprobante);
 		$this->db->delete( array('cfdi_traslados' ) );
 		$this->db->reset_query();
 	}
