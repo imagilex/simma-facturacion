@@ -48,14 +48,7 @@ class Modcfdi_concepto_impuestos extends CI_Model
 	public function setImporte( $valor ) { $this->importe = floatval( $valor ); }
 	public function getFromDatabase($id=0)
 	{
-		if( $this->idcfdi_concepto == "" || $this->idcfdi_concepto == 0 )
-		{
-			if( $id > 0)
-				$this->idcfdi_concepto=$id;
-			else
-				return false;
-		}
-		$this->db->where('idcfdi_concepto',$this->idcfdi_concepto);
+		$this->db->where('cfdi_concepto',$this->cfdi_concepto);
 		$regs=$this->db->get('cfdi_concepto_impuestos');
 		$this->db->reset_query();
 		if($regs->num_rows()==0) {
@@ -103,18 +96,10 @@ class Modcfdi_concepto_impuestos extends CI_Model
 			"importe" => $this->importe
 		);
 		$this->db->insert('cfdi_concepto_impuestos', $data );
-		$this->setIdcfdi_concepto( $this->db->insert_id() );
 		$this->db->reset_query();
 	}
 	public function updateToDatabase($id=0)
 	{
-		if( $this->idcfdi_concepto == "" || $this->idcfdi_concepto == 0)
-		{
-			if( $id > 0 )
-				$this->idcfdi_concepto = $id;
-			else
-				return false;
-		}
 		$data=array(
 			"idcfdi_concepto" => $this->idcfdi_concepto,
 			"tipo" => $this->tipo,
@@ -127,14 +112,13 @@ class Modcfdi_concepto_impuestos extends CI_Model
 			"tipofactor_sat_txt" => $this->tipofactor_sat_txt,
 			"importe" => $this->importe
 		);
-		$this->db->where( 'idcfdi_concepto', $this->idcfdi_concepto );
+		$this->db->where( 'cfdi_concepto', $this->cfdi_concepto );
 		$this->db->update( 'cfdi_concepto_impuestos', $data );
 		$this->db->reset_query();
 		return true;
 	}
 	public function getAll()
 	{
-		$this->db->order_by('tipo');
 		$regs=$this->db->get('cfdi_concepto_impuestos');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
@@ -143,14 +127,7 @@ class Modcfdi_concepto_impuestos extends CI_Model
 	}
 	public function delete($id=0)
 	{
-		if( $this->idcfdi_concepto == "" || $this->idcfdi_concepto == 0)
-		{
-			if( $id > 0 )
-				$this->idcfdi_concepto = $id;
-			else
-				return false;
-		}
-		$this->db->where('idcfdi_concepto',$this->idcfdi_concepto);
+		$this->db->where('cfdi_concepto',$this->cfdi_concepto);
 		$this->db->delete( array('cfdi_concepto_impuestos' ) );
 		$this->db->reset_query();
 	}
