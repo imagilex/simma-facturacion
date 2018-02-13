@@ -102,7 +102,6 @@ public function updateToDatabase($id=0)
 			"tasaocuota" => $this->tasaocuota,
 			"importe" => $this->importe,
 		);
-		$this->db->where( 'cfdi_comprobante', $this->cfdi_comprobante );
 		$this->db->update( 'cfdi_traslados', $data );
 		$this->db->reset_query();
 		return true;
@@ -117,7 +116,6 @@ public function getAll()
 	}
 public function delete($id=0)
 	{
-		$this->db->where('cfdi_comprobante',$this->cfdi_comprobante);
 		$this->db->delete( array('cfdi_traslados' ) );
 		$this->db->reset_query();
 	}
