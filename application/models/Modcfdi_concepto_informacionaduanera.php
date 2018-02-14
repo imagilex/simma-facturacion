@@ -55,6 +55,7 @@ public function updateToDatabase($id=0)
 public function getAll()
 	{
 		$regs=$this->db->get('cfdi_concepto_informacionaduanera');
+		$this->db->order_by('numeropedimento');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
 			return false;
