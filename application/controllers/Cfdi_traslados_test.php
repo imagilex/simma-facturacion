@@ -86,7 +86,8 @@ class Cfdi_traslados_test extends CI_Controller {
 	public function test_delete( $id = 0 ) {
 		$this->load->model( "modcfdi_traslados" );
 		$objeto = new Modcfdi_traslados();
-		$objeto->delete( $id );
+		$objeto->setIdcfdi_comprobante( $id );
+		$objeto->delete(  );
 	}
 	public function test_getall() {
 		$this->load->model( "modcfdi_traslados" );
