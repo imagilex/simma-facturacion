@@ -42,7 +42,7 @@ class Modcfdi_concepto extends CI_Model
 	public function getIdcfdi_comprobante() { return $this->idcfdi_comprobante; }
 	public function getClaveprodserv() { return $this->claveprodserv; }
 	public function getClaveprodserv_sat_id() { return $this->claveprodserv_sat_id; }
-	public function getClaveprodserv_sat_txt() { return $this->claveunidad_sat_txt; }
+	public function getClaveprodserv_sat_txt() { return $this->claveprodserv_sat_txt; }
 	public function getNoidentificacion() { return $this->noidentificacion; }
 	public function getCantidad() { return $this->cantidad; }
 	public function getClaveunidad() { return $this->claveunidad; }
@@ -58,7 +58,7 @@ class Modcfdi_concepto extends CI_Model
 	public function setIdcfdi_comprobante($valor) { return $this->idcfdi_comprobante = intval($valor); }
 	public function setClaveprodserv($valor) { return $this->claveprodserv = intval($valor); }
 	public function setClaveprodserv_sat_id($valor) { return $this->claveprodserv_sat_id = "".$valor; }
-	public function setClaveprodserv_sat_txt($valor) { return $this->claveunidad_sat_txt = "".$valor; }
+	public function setClaveprodserv_sat_txt($valor) { return $this->claveprodserv_sat_txt = "".$valor; }
 	public function setNoidentificacion($valor) { return $this->noidentificacion = "".$valor; }
 	public function setCantidad($valor) { return $this->cantidad = floatval( $valor ); }
 	public function setClaveunidad($valor) { return $this->claveunidad = "".$valor; }
@@ -90,7 +90,7 @@ class Modcfdi_concepto extends CI_Model
 		$this->setIdcfdi_comprobante( $reg[ "idcfdi_comprobante" ] );
 		$this->setClaveprodserv( $reg[ "claveprodserv" ] );
 		$this->setClaveprodserv_sat_id( $reg[ "claveprodserv_sat_id" ] );
-		$this->setClaveunidad_sat_txt( $reg[ "claveprodserv_sat_txt" ] );
+		$this->setClaveprodserv_sat_txt( $reg[ "claveprodserv_sat_txt" ] );
 		$this->setNoidentificacion( $reg[ "noidentificacion" ] );
 		$this->setCantidad( $reg[ "cantidad" ] );
 		$this->setClaveunidad( $reg[ "claveunidad" ] );
@@ -109,8 +109,8 @@ class Modcfdi_concepto extends CI_Model
 		$this->setIdcfdi_concepto( $this->input->post( "frm_cfdi_concepto_idcfdi_concepto" ) );
 		$this->setIdcfdi_comprobante( $this->input->post( "frm_cfdi_concepto_idcfdi_comprobante" ) );
 		$this->setClaveprodserv( $this->input->post( "frm_cfdi_concepto_claveprodserv" ) );
-		$this->setClaveunidad_sat_id( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_id" ) );
-		$this->setClaveunidad_sat_txt( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_txt" ) );
+		$this->setClaveprodserv_sat_id( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_id" ) );
+		$this->setClaveprodserv_sat_txt( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_txt" ) );
 		$this->setNoidentificacion( $this->input->post( "frm_cfdi_concepto_noidentificacion" ) );
 		$this->setCantidad( $this->input->post( "frm_cfdi_concepto_cantidad" ) );
 		$this->setClaveunidad( $this->input->post( "frm_cfdi_concepto_claveunidad" ) );
@@ -135,7 +135,7 @@ class Modcfdi_concepto extends CI_Model
 			"cantidad" => $this->cantidad,
 			"claveunidad" => $this->claveunidad,
 			"claveunidad_sat_id" => $this->claveunidad_sat_id,
-			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
+			"claveprodserv_sat_txt" => $this->claveunidad_sat_txt,
 			"unidad" => $this->unidad,
 			"descripcion" => $this->descripcion,
 			"valorunitario" => $this->valorunitario,
@@ -165,7 +165,7 @@ class Modcfdi_concepto extends CI_Model
 			"cantidad" => $this->cantidad,
 			"claveunidad" => $this->claveunidad,
 			"claveunidad_sat_id" => $this->claveunidad_sat_id,
-			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
+			"claveprodserv_sat_txt" => $this->claveunidad_sat_txt,
 			"unidad" => $this->unidad,
 			"descripcion" => $this->descripcion,
 			"valorunitario" => $this->valorunitario,
