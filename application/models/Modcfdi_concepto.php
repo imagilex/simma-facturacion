@@ -65,7 +65,7 @@ class Modcfdi_concepto extends CI_Model
 	public function setClaveunidad_sat_id($valor) { return $this->claveunidad_sat_id = "".$valor; }
 	public function setClaveunidad_sat_txt($valor) { return $this->claveunidad_sat_txt = "".$valor; }
 	public function setUnidad($valor) { return $this->unidad = "".$valor; }
-	public function setDescripcion($valor) { return $this->descripcion = floatval( $valor ); }
+	public function setDescripcion($valor) { return $this->descripcion = "".$valor; }
 	public function setValorunitario($valor) { return $this->valorunitario = floatval( $valor ); }
 	public function setImporte($valor) { return $this->importe = floatval( $valor ); }
 	public function setDescuento($valor) { return $this->descuento = floatval( $valor ); }
