@@ -17,14 +17,7 @@ class Modcfdi_parte_informacionaduanera extends CI_Model
 	public function setNumeropedimento( $valor ) { $this->numeropedimento = "" . $valor; }
 	public function getFromDatabase($id=0)
 	{
-		if( $this->idcfdi_parte_informacionaduanera == "" || $this->idcfdi_parte_informacionaduanera == 0 )
-		{
-			if( $id > 0)
-				$this->idcfdi_parte_informacionaduanera=$id;
-			else
-				return false;
-		}
-		$this->db->where('idcfdi_parte_informacionaduanera',$this->idcfdi_parte_informacionaduanera);
+		$this->db->where('idcfdi_parte',$this->idcfdi_parte);
 		$regs=$this->db->get('cfdi_parte_informacionaduanera');
 		$this->db->reset_query();
 		if($regs->num_rows()==0) {
@@ -53,18 +46,11 @@ class Modcfdi_parte_informacionaduanera extends CI_Model
 	}
 	public function updateToDatabase($id=0)
 	{
-		if( $this->idcfdi_parte_informacionaduanera == "" || $this->idcfdi_parte_informacionaduanera == 0 )
-		{
-			if( $id > 0)
-				$this->idcfdi_parte_informacionaduanera=$id;
-			else
-				return false;
-		}
 		$data=array(
 			"idcfdi_parte" => $this->idcfdi_parte,
 			"numeropedimento" => $this->numeropedimento
 		);
-		$this->db->where( 'idcfdi_parte_informacionaduanera', $this->idcfdi_parte_informacionaduanera );
+		$this->db->where( 'idcfdi_parte', $this->idcfdi_parte );
 		$this->db->update( 'cfdi_parte_informacionaduanera', $data );
 		$this->db->reset_query();
 		return true;
@@ -80,14 +66,8 @@ class Modcfdi_parte_informacionaduanera extends CI_Model
 	}
 	public function delete($id=0)
 	{
-		if( $this->idcfdi_parte_informacionaduanera == "" || $this->idcfdi_parte_informacionaduanera == 0 )
-		{
-			if( $id > 0)
-				$this->idcfdi_parte_informacionaduanera=$id;
-			else
-				return false;
 		}
-		$this->db->where('idcfdi_parte_informacionaduanera',$this->idcfdi_parte_informacionaduanera);
+		$this->db->where('idcfdi_parte',$this->idcfdi_parte);
 		$this->db->delete( array('cfdi_parte_informacionaduanera' ) );
 		$this->db->reset_query();
 	}
