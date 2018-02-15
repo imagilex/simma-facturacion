@@ -66,6 +66,7 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 	public function test_getdb( $id = 0 ) {
 		$this->load->model( "modcfdi_concepto_impuestos" );
 		$objeto = new Modcfdi_concepto_impuestos();
+		$objeto->setIdcfdi_concepto( $id );
 		$objeto->getFromDatabase( $id );
 		var_dump( $objeto );
 	}
@@ -84,13 +85,13 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto->setTipofactor_sat_id("Tasa");
 		$objeto->setTipofactor_sat_txt("Tasa");
 		$objeto->setImporte("31.4");
-		
 
 		$objeto->updateToDatabase();
 	}
 	public function test_delete( $id = 0 ) {
 		$this->load->model( "modcfdi_concepto_impuestos" );
 		$objeto = new Modcfdi_concepto_impuestos();
+		$objeto->setIdcfdi_concepto( $id );
 		$objeto->delete( $id );
 	}
 	public function test_getall() {
