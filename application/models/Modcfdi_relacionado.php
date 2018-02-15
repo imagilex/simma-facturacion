@@ -81,7 +81,7 @@ public function updateToDatabase($id=0)
 			"idcfdi_comprobante_relacionado" => $this->idcfdi_comprobante_relacionado,
 			"uuid" => $this->uuid,
 		);
-		$this->db->update( 'cfdi_relacionado', $data );
+		$this->db->update( 'cfdi_comprobante', $data );
 		$this->db->reset_query();
 		return true;
 	}
