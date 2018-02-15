@@ -113,6 +113,7 @@ class Cfdi_concepto_test extends CI_Controller {
 		$objeto->setImporte("10.2");
 		$objeto->setDescuento("11.3");
 		$objeto->setCuentapredial_numero("hgvchfgyi3432");
+
 		$objeto->updateToDatabase();
 	}
 	public function test_delete( $id = 0 ) {
