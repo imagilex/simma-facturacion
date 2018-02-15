@@ -35,6 +35,7 @@ class Cfdi_parte_informacionaduanera_test extends CI_Controller {
 	public function test_getdb( $id = 0 ) {
 		$this->load->model( "modcfdi_parte_informacionaduanera" );
 		$objeto = new modcfdi_parte_informacionaduanera();
+		$objeto->setIdcfdi_parte( $id );
 		$objeto->getFromDatabase( $id );
 		var_dump( $objeto );
 	}
@@ -51,6 +52,7 @@ class Cfdi_parte_informacionaduanera_test extends CI_Controller {
 	public function test_delete( $id = 0 ) {
 		$this->load->model( "modcfdi_parte_informacionaduanera" );
 		$objeto = new modcfdi_parte_informacionaduanera();
+		$objeto->setIdcfdi_parte( $id );
 		$objeto->delete( $id );
 	}
 	public function test_getall() {
