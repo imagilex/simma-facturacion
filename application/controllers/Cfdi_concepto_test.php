@@ -1,5 +1,5 @@
 <?php
-
+//Prueba del controlador//
 class Cfdi_concepto_test extends CI_Controller {
 	public function test_set() {
 		$this->load->model( "modcfdi_concepto" );
