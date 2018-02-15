@@ -59,11 +59,11 @@ class Cfdi_relacionado_test extends CI_Controller {
 		$objeto = new Modcfdi_relacionado();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_comprobante( "11" );
+		$objeto->setIdcfdi_comprobante( "10" );
 		$objeto->setTiporelacion( "136" );
 		$objeto->setTiporelacion_sat_id( "04" );
 		$objeto->setTiporelacion_sat_txt( "Sustitución de los CFDI previos" );
-		$objeto->setIdcfdi_comprobante_relacionado( "30" );
+		$objeto->setIdcfdi_comprobante_relacionado( "10" );
 		$objeto->setUuid( "9999" );
 
 		$objeto->updateToDatabase();
