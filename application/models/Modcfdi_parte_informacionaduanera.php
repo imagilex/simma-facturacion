@@ -41,7 +41,6 @@ class Modcfdi_parte_informacionaduanera extends CI_Model
 			"numeropedimento" => $this->numeropedimento
 		);
 		$this->db->insert('cfdi_parte_informacionaduanera', $data );
-		$this->setIdcfdi_parte( $this->db->insert_id() );
 		$this->db->reset_query();
 	}
 	public function updateToDatabase($id=0)
