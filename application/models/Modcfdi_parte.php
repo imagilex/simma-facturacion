@@ -2,7 +2,7 @@
 class Modcfdi_parte extends CI_Model
 {
 	private $idcfdi_parte;
-	private $idcfdi_comprobante;
+	private $idcfdi_concepto;
 	private $claveprodserv;
 	private $claveprodserv_sat_id;
 	private $claveprodserv_sat_txt;
@@ -18,7 +18,7 @@ class Modcfdi_parte extends CI_Model
 		parent::__construct();
 
 		$this->idcfdi_parte = 0;
-		$this->idcfdi_comprobante = 0;
+		$this->idcfdi_concepto = 0;
 		$this->claveprodserv = 0;
 		$this->claveprodserv_sat_id = "";
 		$this->claveprodserv_sat_txt = "";
@@ -30,7 +30,7 @@ class Modcfdi_parte extends CI_Model
 		$this->importe = 0.0;
 	}
 	public function getIdcfdi_parte() { return $this->idcfdi_parte; }
-	public function getIdcfdi_comprobante() { return $this->idcfdi_comprobante; }
+	public function getIdcfdi_concepto() { return $this->idcfdi_concepto; }
 	public function getClaveprodserv() { return $this->claveprodserv; }
 	public function getClaveprodserv_sat_id() { return $this->claveprodserv_sat_id; }
 	public function getClaveprodserv_sat_txt() { return $this->claveprodserv_sat_txt; }
@@ -41,7 +41,7 @@ class Modcfdi_parte extends CI_Model
 	public function getValorunitario() { return $this->valorunitario; }
 	public function getImporte() { return $this->importe; }
 	public function setIdcfdi_parte( $valor ) { $this->idcfdi_parte = intval( $valor ); }
-	public function setIdcfdi_comprobante( $valor ) { $this->idcfdi_comprobante = intval( $valor ); }
+	public function setIdcfdi_concepto( $valor ) { $this->idcfdi_concepto = intval( $valor ); }
 	public function setClaveprodserv( $valor ) { $this->claveprodserv = intval( $valor ); }
 	public function setClaveprodserv_sat_id( $valor ) { $this->claveprodserv_sat_id = "" . $valor; }
 	public function setClaveprodserv_sat_txt( $valor ) { $this->claveprodserv_sat_txt = "" . $valor; }
@@ -68,7 +68,7 @@ class Modcfdi_parte extends CI_Model
 		}
 		$reg=$regs->row_array();
 		$this->setIdcfdi_parte( $reg[ "idcfdi_parte" ] );
-		$this->setIdcfdi_comprobante( $reg[ "idcfdi_comprobante" ] );
+		$this->setIdcfdi_concepto( $reg[ "idcfdi_concepto" ] );
 		$this->setClaveprodserv( $reg[ "claveprodserv" ] );
 		$this->setClaveprodserv_sat_id( $reg[ "claveprodserv_sat_id" ] );
 		$this->setClaveprodserv_sat_txt( $reg[ "claveprodserv_sat_txt" ] );
@@ -83,7 +83,7 @@ class Modcfdi_parte extends CI_Model
 	public function getFromInput()
 	{
 		$this->setIdcfdi_parte( $this->input->post( "frm_cfdi_parte_idcfdi_parte" ) );
-		$this->setIdcfdi_comprobante( $this->input->post( "frm_cfdi_parte_idcfdi_comprobante" ) );
+		$this->setIdcfdi_concepto( $this->input->post( "frm_cfdi_parte_idcfdi_concepto" ) );
 		$this->setClaveprodserv( $this->input->post( "frm_cfdi_parte_claveprodserv" ) );
 		$this->setClaveprodserv_sat_id( $this->input->post( "frm_cfdi_parte_claveprodserv_sat_id" ) );
 		$this->setClaveprodserv_sat_txt( $this->input->post( "frm_cfdi_parte_claveprodserv_sat_txt" ) );
@@ -98,7 +98,7 @@ class Modcfdi_parte extends CI_Model
 	public function addToDatabase()
 	{
 		$data=array(
-			"idcfdi_comprobante" => $this->idcfdi_comprobante,
+			"idcfdi_concepto" => $this->idcfdi_concepto,
 			"claveprodserv" => $this->claveprodserv,
 			"claveprodserv_sat_id" => $this->claveprodserv_sat_id,
 			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
@@ -123,7 +123,7 @@ class Modcfdi_parte extends CI_Model
 				return false;
 		}
 		$data=array(
-			"idcfdi_comprobante" => $this->idcfdi_comprobante,
+			"idcfdi_concepto" => $this->idcfdi_concepto,
 			"claveprodserv" => $this->claveprodserv,
 			"claveprodserv_sat_id" => $this->claveprodserv_sat_id,
 			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
