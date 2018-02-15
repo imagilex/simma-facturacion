@@ -74,8 +74,12 @@ public function addToDatabase()
 public function updateToDatabase($id=0)
 	{
 		$data=array(
-			"idcfdi_concepto" => $this->idcfdi_concepto,
-			"numeropedimento" => $this->numeropedimento,
+			"idcfdi_comprobante" => $this->idcfdi_comprobante,
+			"tiporelacion" => $this->tiporelacion,
+			"tiporelacion_sat_id" => $this->tiporelacion_sat_id,
+			"tiporelacion_sat_txt" => $this->tiporelacion_sat_txt,
+			"idcfdi_comprobante_relacionado" => $this->idcfdi_comprobante_relacionado,
+			"uuid" => $this->uuid,
 		);
 		$this->db->update( 'cfdi_relacionado', $data );
 		$this->db->reset_query();
