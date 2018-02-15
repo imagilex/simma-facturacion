@@ -17,6 +17,7 @@ class Modcfdi_concepto extends CI_Model
 	private $importe;
 	private $descuento;
 	private $cuentapredial_numero;
+	
 	public function __construct()
 	{
 		parent::__construct();
