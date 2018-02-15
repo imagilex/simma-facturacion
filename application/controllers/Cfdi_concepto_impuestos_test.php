@@ -85,7 +85,6 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$objeto->setTipofactor_sat_id("Tasa");
 		$objeto->setTipofactor_sat_txt("Tasa");
 		$objeto->setImporte("31.4");
-		
 
 		$objeto->updateToDatabase();
 	}
