@@ -6,7 +6,7 @@ class Cfdi_parte_informacionaduanera_test extends CI_Controller {
 		$objeto = new modcfdi_parte_informacionaduanera();
 		var_dump( $objeto );
 
-		$objeto->setIdcfdi_parte( "2" );
+		$objeto->setIdcfdi_parte( "3" );
 		$objeto->setNumeropedimento( "hgvhgt4334" );
 		
 		var_dump( $objeto );
@@ -15,7 +15,7 @@ class Cfdi_parte_informacionaduanera_test extends CI_Controller {
 		$this->load->model( "modcfdi_parte_informacionaduanera" );
 		$objeto = new modcfdi_parte_informacionaduanera();
 
-		$objeto->setIdcfdi_parte( "2" );
+		$objeto->setIdcfdi_parte( "3" );
 		$objeto->setNumeropedimento( "hgvhgt4334" );
 
 		var_dump( "getIdcfdi_parte", $objeto->getIdcfdi_parte() );
@@ -25,7 +25,7 @@ class Cfdi_parte_informacionaduanera_test extends CI_Controller {
 		$this->load->model( "modcfdi_parte_informacionaduanera" );
 		$objeto = new modcfdi_parte_informacionaduanera();
 
-		$objeto->setIdcfdi_parte( "2" );
+		$objeto->setIdcfdi_parte( "3" );
 		$objeto->setNumeropedimento( "hgvhgt4334" );
 
 		$objeto->addToDatabase();
@@ -35,6 +35,7 @@ class Cfdi_parte_informacionaduanera_test extends CI_Controller {
 	public function test_getdb( $id = 0 ) {
 		$this->load->model( "modcfdi_parte_informacionaduanera" );
 		$objeto = new modcfdi_parte_informacionaduanera();
+		$objeto->setIdcfdi_parte( $id );
 		$objeto->getFromDatabase( $id );
 		var_dump( $objeto );
 	}
@@ -43,14 +44,15 @@ class Cfdi_parte_informacionaduanera_test extends CI_Controller {
 		$objeto = new modcfdi_parte_informacionaduanera();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_parte( "2" );
-		$objeto->setNumeropedimento( "hgvhgt4334" );
+		$objeto->setIdcfdi_parte( "3" );
+		$objeto->setNumeropedimento( "hgvhgt555" );
 
 		$objeto->updateToDatabase();
 	}
 	public function test_delete( $id = 0 ) {
 		$this->load->model( "modcfdi_parte_informacionaduanera" );
 		$objeto = new modcfdi_parte_informacionaduanera();
+		$objeto->setIdcfdi_parte( $id );
 		$objeto->delete( $id );
 	}
 	public function test_getall() {
