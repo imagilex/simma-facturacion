@@ -46,7 +46,7 @@ class Cfdi_relacionado_test extends CI_Controller {
 
 		$objeto->addToDatabase();
 
-		var_dump( $objeto->getIdcfdi_concepto() );
+		var_dump( $objeto->getIdcfdi_comprobante() );
 	}
 	public function test_getdb( $id = 0 ) {
 		$this->load->model( "modcfdi_relacionado" );
