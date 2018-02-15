@@ -46,6 +46,7 @@ class Cfdi_retenciones_test extends CI_Controller {
 	public function test_getdb( $id = 0 ) {
 		$this->load->model( "modcfdi_retenciones" );
 		$objeto = new Modcfdi_retenciones();
+		$objeto->setIdcfdi_comprobante( $id );
 		$objeto->getFromDatabase( $id );
 		var_dump( $objeto );
 	}
@@ -65,6 +66,7 @@ class Cfdi_retenciones_test extends CI_Controller {
 	public function test_delete( $id = 0 ) {
 		$this->load->model( "modcfdi_retenciones" );
 		$objeto = new Modcfdi_retenciones();
+		$objeto->setIdcfdi_comprobante( $id );
 		$objeto->delete( $id );
 	}
 	public function test_getall() {
