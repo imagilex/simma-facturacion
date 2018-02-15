@@ -42,6 +42,7 @@ class Modcfdi_concepto extends CI_Model
 	public function getIdcfdi_comprobante() { return $this->idcfdi_comprobante; }
 	public function getClaveprodserv() { return $this->claveprodserv; }
 	public function getClaveprodserv_sat_id() { return $this->claveprodserv_sat_id; }
+	public function getClaveprodserv_sat_txt() { return $this->claveunidad_sat_txt; }
 	public function getClaveprodserv_sat_txt() { return $this->claveprodserv_sat_txt; }
 	public function getNoidentificacion() { return $this->noidentificacion; }
 	public function getCantidad() { return $this->cantidad; }
@@ -58,6 +59,7 @@ class Modcfdi_concepto extends CI_Model
 	public function setIdcfdi_comprobante($valor) { return $this->idcfdi_comprobante = intval($valor); }
 	public function setClaveprodserv($valor) { return $this->claveprodserv = intval($valor); }
 	public function setClaveprodserv_sat_id($valor) { return $this->claveprodserv_sat_id = "".$valor; }
+	public function setClaveprodserv_sat_txt($valor) { return $this->claveunidad_sat_txt = "".$valor; }
 	public function setClaveprodserv_sat_txt($valor) { return $this->claveprodserv_sat_txt = "".$valor; }
 	public function setNoidentificacion($valor) { return $this->noidentificacion = "".$valor; }
 	public function setCantidad($valor) { return $this->cantidad = floatval( $valor ); }
@@ -65,6 +67,7 @@ class Modcfdi_concepto extends CI_Model
 	public function setClaveunidad_sat_id($valor) { return $this->claveunidad_sat_id = "".$valor; }
 	public function setClaveunidad_sat_txt($valor) { return $this->claveunidad_sat_txt = "".$valor; }
 	public function setUnidad($valor) { return $this->unidad = "".$valor; }
+	public function setDescripcion($valor) { return $this->descripcion = floatval( $valor ); }
 	public function setDescripcion($valor) { return $this->descripcion = "".$valor; }
 	public function setValorunitario($valor) { return $this->valorunitario = floatval( $valor ); }
 	public function setImporte($valor) { return $this->importe = floatval( $valor ); }
@@ -90,6 +93,7 @@ class Modcfdi_concepto extends CI_Model
 		$this->setIdcfdi_comprobante( $reg[ "idcfdi_comprobante" ] );
 		$this->setClaveprodserv( $reg[ "claveprodserv" ] );
 		$this->setClaveprodserv_sat_id( $reg[ "claveprodserv_sat_id" ] );
+		$this->setClaveunidad_sat_txt( $reg[ "claveprodserv_sat_txt" ] );
 		$this->setClaveprodserv_sat_txt( $reg[ "claveprodserv_sat_txt" ] );
 		$this->setNoidentificacion( $reg[ "noidentificacion" ] );
 		$this->setCantidad( $reg[ "cantidad" ] );
@@ -109,6 +113,8 @@ class Modcfdi_concepto extends CI_Model
 		$this->setIdcfdi_concepto( $this->input->post( "frm_cfdi_concepto_idcfdi_concepto" ) );
 		$this->setIdcfdi_comprobante( $this->input->post( "frm_cfdi_concepto_idcfdi_comprobante" ) );
 		$this->setClaveprodserv( $this->input->post( "frm_cfdi_concepto_claveprodserv" ) );
+		$this->setClaveunidad_sat_id( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_id" ) );
+		$this->setClaveunidad_sat_txt( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_txt" ) );
 		$this->setClaveprodserv_sat_id( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_id" ) );
 		$this->setClaveprodserv_sat_txt( $this->input->post( "frm_cfdi_concepto_claveprodserv_sat_txt" ) );
 		$this->setNoidentificacion( $this->input->post( "frm_cfdi_concepto_noidentificacion" ) );
@@ -135,6 +141,7 @@ class Modcfdi_concepto extends CI_Model
 			"cantidad" => $this->cantidad,
 			"claveunidad" => $this->claveunidad,
 			"claveunidad_sat_id" => $this->claveunidad_sat_id,
+			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
 			"claveunidad_sat_txt" => $this->claveunidad_sat_txt,
 			"unidad" => $this->unidad,
 			"descripcion" => $this->descripcion,
@@ -165,6 +172,7 @@ class Modcfdi_concepto extends CI_Model
 			"cantidad" => $this->cantidad,
 			"claveunidad" => $this->claveunidad,
 			"claveunidad_sat_id" => $this->claveunidad_sat_id,
+			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
 			"claveunidad_sat_txt" => $this->claveunidad_sat_txt,
 			"unidad" => $this->unidad,
 			"descripcion" => $this->descripcion,
