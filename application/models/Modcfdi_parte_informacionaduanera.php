@@ -31,7 +31,7 @@ class Modcfdi_parte_informacionaduanera extends CI_Model
 	public function getFromInput()
 	{
 		$this->setIdcfdi_parte( $this->input->post( "frm_cfdi_parte_informacionaduanera_idcfdi_parte" ) );
-		$this->setIdcfdi_comprobante( $this->input->post( "frm_cfdi_parte_informacionaduanera_numeropedimento" ) );
+		$this->setNumeropedimento( $this->input->post( "frm_cfdi_parte_informacionaduanera_numeropedimento" ) );
 		return true;
 	}
 	public function addToDatabase()
