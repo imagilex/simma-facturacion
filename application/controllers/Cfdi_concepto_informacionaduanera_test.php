@@ -51,7 +51,7 @@ class Cfdi_concepto_informacionaduanera_test extends CI_Controller {
 	public function test_delete( $id = 0 ) {
 		$this->load->model( "modcfdi_concepto_informacionaduanera" );
 		$objeto = new Modcfdi_concepto_informacionaduanera();
-		$objeto->setIdcfdiparte( $id );
+		$objeto->setIdcfdi_concepto( $id );
 		$objeto->delete(  );
 	}
 	public function test_getall() {
