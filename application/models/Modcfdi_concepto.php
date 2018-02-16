@@ -30,7 +30,7 @@ class Modcfdi_concepto extends CI_Model
 	 	$this->claveunidad = 0;
 	 	$this->claveunidad_sat_id = "";
 		$this->claveunidad_sat_txt= "";
-	 	$this->unidad = 0;
+	 	$this->unidad = "";
 	 	$this->descripcion = "";
 	 	$this->valorunitario = 0.0;
 		$this->importe = 0.0;
@@ -60,7 +60,7 @@ class Modcfdi_concepto extends CI_Model
 	public function setClaveprodserv_sat_txt($valor) { return $this->claveprodserv_sat_txt = "".$valor; }
 	public function setNoidentificacion($valor) { return $this->noidentificacion = "".$valor; }
 	public function setCantidad($valor) { return $this->cantidad = floatval( $valor ); }
-	public function setClaveunidad($valor) { return $this->claveunidad = "".$valor; }
+	public function setClaveunidad($valor) { return $this->claveunidad = intval($valor); }
 	public function setClaveunidad_sat_id($valor) { return $this->claveunidad_sat_id = "".$valor; }
 	public function setClaveunidad_sat_txt($valor) { return $this->claveunidad_sat_txt = "".$valor; }
 	public function setUnidad($valor) { return $this->unidad = "".$valor; }
