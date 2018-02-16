@@ -1,5 +1,5 @@
 <?php
-
+//Prueba del modelo//
 class Cfdi_retenciones_test extends CI_Controller {
 	public function test_set() {
 		$this->load->model( "modcfdi_retenciones" );
