@@ -30,7 +30,7 @@ class Modcfdi_concepto extends CI_Model
 	 	$this->claveunidad = 0;
 	 	$this->claveunidad_sat_id = "";
 		$this->claveunidad_sat_txt= "";
-	 	$this->unidad = "";
+	 	$this->unidad = 0;
 	 	$this->descripcion = "";
 	 	$this->valorunitario = 0.0;
 		$this->importe = 0.0;
