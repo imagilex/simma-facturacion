@@ -55,7 +55,7 @@ class Cfdi_retenciones_test extends CI_Controller {
 		$objeto = new Modcfdi_retenciones();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_comprobante("4");
+		$objeto->setIdcfdi_comprobante("2");
 		$objeto->setImpuesto("128");
 		$objeto->setImpuesto_sat_id("002");
 		$objeto->setImpuesto_sat_txt("IVA");
