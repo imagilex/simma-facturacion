@@ -82,11 +82,11 @@ class Cfdi_parte_test extends CI_Controller {
 		$objeto->setClaveprodserv_sat_id( "24131513" );
 		$objeto->setClaveprodserv_sat_txt( "Refrigerante" );
 		$objeto->setNoidentificacion( "55555yf" );
-		$objeto->setCantidad( "12.3" );
- 		$objeto->setUnidad( "343bb3h3" );
-		$objeto->setDescripcion( "hjhhjbbjfdvind" );
-		$objeto->setValorunitario( "23.1" );
-		$objeto->setImporte( "21.4" );
+		$objeto->setCantidad( "121.3" );
+ 		$objeto->setUnidad( "gvhvg4" );
+		$objeto->setDescripcion( "aaaaaaaa1" );
+		$objeto->setValorunitario( "231.1" );
+		$objeto->setImporte( "211.4" );
 
 		$objeto->updateToDatabase();
 	}
