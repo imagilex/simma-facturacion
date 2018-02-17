@@ -88,7 +88,6 @@ class Cfdi_pago_test extends CI_Controller {
 		$this->load->model( "modcfdi_pago" );
 		$objeto = new modcfdi_pago();
 
-		$objeto->setIdcfdi_pago( "2" );
 		$objeto->setIdcfdi_comprobante( "2" );
 		$objeto->setFechapago( "2018-02-08 00:00:00" );
 		$objeto->setFormadepagop( "18" );
@@ -127,7 +126,6 @@ class Cfdi_pago_test extends CI_Controller {
 		$objeto = new modcfdi_pago();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_pago( "2" );
 		$objeto->setIdcfdi_comprobante( "2" );
 		$objeto->setFechapago( "2018-02-09 00:00:00" );
 		$objeto->setFormadepagop( "18" );
