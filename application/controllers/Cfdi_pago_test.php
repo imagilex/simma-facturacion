@@ -8,7 +8,7 @@ class Cfdi_pago_test extends CI_Controller {
 
 		$objeto->setIdcfdi_pago( "2" );
 		$objeto->setIdcfdi_comprobante( "2" );
-		$objeto->setFechapago( "1995/02/01" );
+		$objeto->setFechapago( "2018-02-08 00:00:00" );
 		$objeto->setFormadepagop( "18" );
 		$objeto->setFormadepagop_sat_id( "03" );
 		$objeto->setFormadepagop_sat_txt( "Transferencia electrónica de fondos" );
