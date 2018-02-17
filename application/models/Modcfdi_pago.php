@@ -161,7 +161,7 @@ class Modcfdi_pago extends CI_Model
 		$this->setTipocadpago_sat_id( $this->input->post( "frm_cfdi_pago_tipocadpago_sat_id" ) );
 		$this->setTipocadpago_sat_txt( $this->input->post( "frm_cfdi_pago_tipocadpago_sat_txt" ) );
 		$this->setCertpago( $this->input->post( "frm_cfdi_pago_certpago" ) );
-		$this->setCadpago( $this->input->post( "frm_cfdi_pago_tipocadpago"))
+		$this->setCadpago( $this->input->post( "frm_cfdi_pago_tipocadpago") );
 		$this->setSellopago( $this->input->post( "frm_cfdi_pago_sellopago" ) );
 		return true;
 	}
