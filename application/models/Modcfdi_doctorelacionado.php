@@ -160,7 +160,6 @@ class Modcfdi_doctorelacionado extends CI_Model
 	}
 	public function getAll()
 	{
-		$this->db->order_by('fechapago');
 		$regs=$this->db->get('cfdi_doctorelacionado');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
