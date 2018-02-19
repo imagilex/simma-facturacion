@@ -1,5 +1,5 @@
 <?php
-
+//Prueba del modelo//
 class Cfdi_retenciones_test extends CI_Controller {
 	public function test_set() {
 		$this->load->model( "modcfdi_retenciones" );
@@ -46,6 +46,7 @@ class Cfdi_retenciones_test extends CI_Controller {
 	public function test_getdb( $id = 0 ) {
 		$this->load->model( "modcfdi_retenciones" );
 		$objeto = new Modcfdi_retenciones();
+		$objeto->setIdcfdi_comprobante( $id );
 		$objeto->getFromDatabase( $id );
 		var_dump( $objeto );
 	}
@@ -54,7 +55,7 @@ class Cfdi_retenciones_test extends CI_Controller {
 		$objeto = new Modcfdi_retenciones();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_comprobante("4");
+		$objeto->setIdcfdi_comprobante("2");
 		$objeto->setImpuesto("128");
 		$objeto->setImpuesto_sat_id("002");
 		$objeto->setImpuesto_sat_txt("IVA");
@@ -65,6 +66,7 @@ class Cfdi_retenciones_test extends CI_Controller {
 	public function test_delete( $id = 0 ) {
 		$this->load->model( "modcfdi_retenciones" );
 		$objeto = new Modcfdi_retenciones();
+		$objeto->setIdcfdi_comprobante( $id );
 		$objeto->delete( $id );
 	}
 	public function test_getall() {
