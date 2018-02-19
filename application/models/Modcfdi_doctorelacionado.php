@@ -62,7 +62,7 @@ class Modcfdi_doctorelacionado extends CI_Model
 	public function setMetododepagodr( $valor ) { $this->metododepagodr = intval( $valor );}
 	public function setMetododepagodr_sat_id( $valor ) { $this->metododepagodr_sat_id = "" . $valor;} 
 	public function setMetododepagodr_sat_txt( $valor ) { $this->metododepagodr_sat_txt = "" . $valor;} 
-	public function setNumparcialidad( $valor ) { $this->numparcialidad = = intval( $valor );}
+	public function setNumparcialidad( $valor ) { $this->numparcialidad = intval( $valor );}
 	public function setImpsaldoant( $valor ) { $this->impsaldoant = floatval( $valor );}
 	public function setImppagado( $valor ) { $this->imppagado = floatval( $valor );}
 	public function setImpsaldoinsoluto( $valor ) { $this->impsaldoinsoluto = floatval( $valor );}
