@@ -17,7 +17,7 @@ class Cfdi_doctorelacionado_test extends CI_Controller {
 		$objeto->setMetododepagodr( "20" );
 		$objeto->setMetododepagodr_sat_id( "PPD" );
 		$objeto->setMetododepagodr_sat_txt( "Pago en parcialidades o diferido" );
-		$objeto->setNumparcialidad( "gft3y" );
+		$objeto->setNumparcialidad( "22222" );
 		$objeto->setImpsaldoant( "12.2" );
 		$objeto->setImppagado( "13.3" );
 		$objeto->setImpsaldoinsoluto( "14.4" );
@@ -39,7 +39,7 @@ class Cfdi_doctorelacionado_test extends CI_Controller {
 		$objeto->setMetododepagodr( "20" );
 		$objeto->setMetododepagodr_sat_id( "PPD" );
 		$objeto->setMetododepagodr_sat_txt( "Pago en parcialidades o diferido" );
-		$objeto->setNumparcialidad( "gft3y" );
+		$objeto->setNumparcialidad( "22222" );
 		$objeto->setImpsaldoant( "12.2" );
 		$objeto->setImppagado( "13.3" );
 		$objeto->setImpsaldoinsoluto( "14.4" );
@@ -75,7 +75,7 @@ class Cfdi_doctorelacionado_test extends CI_Controller {
 		$objeto->setMetododepagodr( "20" );
 		$objeto->setMetododepagodr_sat_id( "PPD" );
 		$objeto->setMetododepagodr_sat_txt( "Pago en parcialidades o diferido" );
-		$objeto->setNumparcialidad( "gft3y" );
+		$objeto->setNumparcialidad( "22222" );
 		$objeto->setImpsaldoant( "12.2" );
 		$objeto->setImppagado( "13.3" );
 		$objeto->setImpsaldoinsoluto( "14.4" );
@@ -107,7 +107,7 @@ class Cfdi_doctorelacionado_test extends CI_Controller {
 		$objeto->setMetododepagodr( "20" );
 		$objeto->setMetododepagodr_sat_id( "PPD" );
 		$objeto->setMetododepagodr_sat_txt( "Pago en parcialidades o diferido" );
-		$objeto->setNumparcialidad( "g325y" );
+		$objeto->setNumparcialidad( "333333" );
 		$objeto->setImpsaldoant( "1.2" );
 		$objeto->setImppagado( "1.3" );
 		$objeto->setImpsaldoinsoluto( "1.4" );
