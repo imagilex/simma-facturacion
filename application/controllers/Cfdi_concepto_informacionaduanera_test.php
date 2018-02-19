@@ -46,6 +46,7 @@ class Cfdi_concepto_informacionaduanera_test extends CI_Controller {
 		$objeto->setIdcfdi_concepto( "10" );
 		$objeto->setNumeropedimento( "9999" );
 		$objeto->setImpuesto( "9999" );
+    
 		$objeto->updateToDatabase();
 	}
 	public function test_delete( $id = 0 ) {
