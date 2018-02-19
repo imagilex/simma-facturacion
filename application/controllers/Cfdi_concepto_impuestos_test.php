@@ -92,7 +92,7 @@ class Cfdi_concepto_impuestos_test extends CI_Controller {
 		$this->load->model( "modcfdi_concepto_impuestos" );
 		$objeto = new Modcfdi_concepto_impuestos();
 		$objeto->setIdcfdi_concepto( $id );
-		$objeto->delete();
+    $objeto->delete( $id );
 	}
 	public function test_getall() {
 		$this->load->model( "modcfdi_concepto_impuestos" );

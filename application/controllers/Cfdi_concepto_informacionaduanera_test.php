@@ -43,14 +43,15 @@ class Cfdi_concepto_informacionaduanera_test extends CI_Controller {
 		$objeto = new Modcfdi_concepto_informacionaduanera();
 		$objeto->getFromDatabase( $id );
 
-		$objeto->setIdcfdi_comprobante( "11" );
+		$objeto->setIdcfdi_concepto( "10" );
+		$objeto->setNumeropedimento( "9999" );
 		$objeto->setImpuesto( "9999" );
-
 		$objeto->updateToDatabase();
 	}
 	public function test_delete( $id = 0 ) {
 		$this->load->model( "modcfdi_concepto_informacionaduanera" );
 		$objeto = new Modcfdi_concepto_informacionaduanera();
+		$objeto->setIdcfdi_concepto( $id );
 		$objeto->setIdcfdiparte( $id );
 		$objeto->delete(  );
 	}
