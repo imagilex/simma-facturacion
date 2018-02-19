@@ -65,7 +65,6 @@ class Modcfdi_parte_informacionaduanera extends CI_Model
 	}
 	public function delete($id=0)
 	{
-		}
 		$this->db->where('idcfdi_parte',$this->idcfdi_parte);
 		$this->db->delete( array('cfdi_parte_informacionaduanera' ) );
 		$this->db->reset_query();
