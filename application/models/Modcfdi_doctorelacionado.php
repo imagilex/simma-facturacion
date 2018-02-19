@@ -30,7 +30,7 @@ class Modcfdi_doctorelacionado extends CI_Model
 		$this->metododepagodr = 0;
 		$this->metododepagodr_sat_id = "";
 		$this->metododepagodr_sat_txt = "";
-		$this->numparcialidad = "";
+		$this->numparcialidad = 0;
 		$this->impsaldoant = 0.0;
 		$this->imppagado = 0.0;
 		$this->impsaldoinsoluto = 0.0;
@@ -62,7 +62,7 @@ class Modcfdi_doctorelacionado extends CI_Model
 	public function setMetododepagodr( $valor ) { $this->metododepagodr = intval( $valor );}
 	public function setMetododepagodr_sat_id( $valor ) { $this->metododepagodr_sat_id = "" . $valor;} 
 	public function setMetododepagodr_sat_txt( $valor ) { $this->metododepagodr_sat_txt = "" . $valor;} 
-	public function setNumparcialidad( $valor ) { $this->numparcialidad = "" . $valor;}
+	public function setNumparcialidad( $valor ) { $this->numparcialidad = intval( $valor );}
 	public function setImpsaldoant( $valor ) { $this->impsaldoant = floatval( $valor );}
 	public function setImppagado( $valor ) { $this->imppagado = floatval( $valor );}
 	public function setImpsaldoinsoluto( $valor ) { $this->impsaldoinsoluto = floatval( $valor );}
@@ -160,7 +160,6 @@ class Modcfdi_doctorelacionado extends CI_Model
 	}
 	public function getAll()
 	{
-		$this->db->order_by('fechapago');
 		$regs=$this->db->get('cfdi_doctorelacionado');
 		$this->db->reset_query();
 		if( $regs->num_rows() == 0 )
