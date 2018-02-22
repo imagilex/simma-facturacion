@@ -134,7 +134,7 @@ class Modcfdi_concepto extends CI_Model
 			"cantidad" => $this->cantidad,
 			"claveunidad" => $this->claveunidad,
 			"claveunidad_sat_id" => $this->claveunidad_sat_id,
-			"claveprodserv_sat_txt" => $this->claveprodserv_sat_txt,
+			"claveunidad_sat_txt" => $this->claveunidad_sat_txt,
 			"unidad" => $this->unidad,
 			"descripcion" => $this->descripcion,
 			"valorunitario" => $this->valorunitario,
