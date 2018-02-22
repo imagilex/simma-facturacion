@@ -69,16 +69,16 @@ class Modcfdi_concepto_impuestos extends CI_Model
 	}
 	public function getFromInput()
 	{
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_idcfdi_concepto" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_tipo" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_base" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_impuesto" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_impuesto_sat_id" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_impuesto_sat_txt" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_tipofactor" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_tipofactor_sat_id" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_tipofactor_sat_txt" ) );
-		$this->set( $this->input->post( "frm_cfdi_concepto_impuestos_importe" ) );
+		$this->setIdcfdi_concepto( $this->input->post( "frm_cfdi_concepto_impuestos_idcfdi_concepto" ) );
+		$this->setTipo( $this->input->post( "frm_cfdi_concepto_impuestos_tipo" ) );
+		$this->setBase( $this->input->post( "frm_cfdi_concepto_impuestos_base" ) );
+		$this->setImpuesto( $this->input->post( "frm_cfdi_concepto_impuestos_impuesto" ) );
+		$this->setImpuesto_sat_id( $this->input->post( "frm_cfdi_concepto_impuestos_impuesto_sat_id" ) );
+		$this->setImpuesto_sat_txt( $this->input->post( "frm_cfdi_concepto_impuestos_impuesto_sat_txt" ) );
+		$this->setTipofactor( $this->input->post( "frm_cfdi_concepto_impuestos_tipofactor" ) );
+		$this->setTipofactor_sat_id( $this->input->post( "frm_cfdi_concepto_impuestos_tipofactor_sat_id" ) );
+		$this->setTipofactor_sat_txt( $this->input->post( "frm_cfdi_concepto_impuestos_tipofactor_sat_txt" ) );
+		$this->setImporte( $this->input->post( "frm_cfdi_concepto_impuestos_importe" ) );
 		return true;
 	}
 	public function addToDatabase()
