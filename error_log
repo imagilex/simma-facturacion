@@ -1,0 +1,4 @@
+[21-Jan-2018 23:49:57 America/Mexico_City] PHP Fatal error:  Cannot redeclare Modvehiculo::hasRuta() in /home/hexpywbw/public_html/dev_work/preprod/simma/simma-facturacion/application/models/Modvehiculo.php on line 154
+[21-Jan-2018 23:50:04 America/Mexico_City] PHP Fatal error:  Cannot redeclare Modvehiculo::hasRuta() in /home/hexpywbw/public_html/dev_work/preprod/simma/simma-facturacion/application/models/Modvehiculo.php on line 154
+[21-Jan-2018 23:50:23 America/Mexico_City] PHP Fatal error:  Cannot redeclare Modvehiculo::hasRuta() in /home/hexpywbw/public_html/dev_work/preprod/simma/simma-facturacion/application/models/Modvehiculo.php on line 154
+[01-Mar-2018 11:20:32 America/Mexico_City] PHP Fatal error:  Call to undefined method CI_Encrypt::sha1() in /home/hexpywbw/public_html/dev_work/preprod/simma/simma-facturacion/application/models/Modusuario.php on line 229
