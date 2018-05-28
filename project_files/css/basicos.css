@@ -46,6 +46,9 @@ body .container
 	{
 		display: none;
 	}
+	div.btn-toolbar.float-right {
+		display: none;
+	}
 }
 
 table.Reporte
@@ -169,4 +172,22 @@ ul.pagination li {
     padding: 0px 15px;
     border: 1px solid #007bff;
     border-radius: 3px;
+}
+
+p.form-control {
+	background-color: #e9ecef;
+    min-height: 38px;
+}
+
+form {
+	margin-bottom: 5px;
+}
+body {
+	padding-bottom: 20px;
+}
+table.table.table-hover.table-sm.table-responsive thead th.sortable {
+	cursor: pointer;
+}
+table.table.table-hover.table-sm.table-responsive thead th.sortable:hover {
+	text-decoration: underline;
 }
