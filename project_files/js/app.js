@@ -324,7 +324,7 @@ function TableSortByColumn( idtable, column, type ) {
 	data_cels.each( function() { 
 		var text = $( this ).text().trim();
 		var num = parseFloat( text );
-		if( isNaN( num ) || text.length != ( "" + num ).length ) {
+		if( isNaN( num ) || num != text ) {
 			if( -1 == data.indexOf( text ) ) {
 				data.push( text );
 			}
@@ -2820,7 +2820,7 @@ function fnReporte()
 			if(resp.length>250)
 				setTimeout(function(){Alert(resp,function(){return true;});},500);
 			else
-				location.href=resp;
+				location.href= baseURL + 'reporte/descargarExcel/' + resp;
 		});
 		ajx.fail(function(jqXHRObj,mensaje){
 			closeModal();
